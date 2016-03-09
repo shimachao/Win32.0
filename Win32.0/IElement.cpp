@@ -67,6 +67,6 @@ void IElement::setLeft(unsigned left)
 // 查询水平方向位置
 unsigned IElement::getLeft()
 {
-    return m_left
+    return m_left;
 }
 
