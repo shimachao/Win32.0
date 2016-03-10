@@ -7,7 +7,7 @@ GridLayout::GridLayout(int width, int height, unsigned row, unsigned column)
     , m_childArray(nullptr)
 {
     m_pMark = new bool[m_row * m_column];
-    m_childArray = (IElement**)(new IElement*[m_row * m_column]);
+    m_childArray = new IElement*[m_row * m_column];
 
     for (size_t i = 0; i < m_row * m_column; i++)
     {
