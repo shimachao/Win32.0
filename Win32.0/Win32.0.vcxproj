@@ -146,11 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GridLayout.h" />
     <ClInclude Include="IElement.h" />
     <ClInclude Include="ILayout.h" />
     <ClInclude Include="LinearLayout.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GridLayout.cpp" />
     <ClCompile Include="IElement.cpp" />
     <ClCompile Include="ILayout.cpp" />
     <ClCompile Include="LinearLayout.cpp" />
