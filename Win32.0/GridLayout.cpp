@@ -2,7 +2,7 @@
 
 
 
-GridLayout::GridLayout(int width, int height, unsigned row, unsigned column) 
+GridLayout::GridLayout(unsigned width, unsigned height, unsigned row, unsigned column) 
     :ILayout(width, height), m_row(row), m_column(column), m_pMark(nullptr)
     , m_childArray(nullptr)
 {
@@ -47,8 +47,8 @@ void GridLayout::add(IElement *pElement)
         m_pMark[i] = true;
         m_childArray[i] = pElement;
         // 设置该子元素的坐标
-        int row = i / m_column; // 元素所在行
-        int column = i % m_column;// 元素所在列
+        unsigned row = i / m_column; // 元素所在行
+        unsigned column = i % m_column;// 元素所在列
         setPos(pElement, row, column);
     }
 }
@@ -72,8 +72,8 @@ void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
         m_pMark[index] = true;
         m_childArray[index] = pElement;
         // 设置该元素坐标
-        int row = index / m_column; // 元素所在行
-        int column = index % m_column;// 元素所在列
+        unsigned row = index / m_column; // 元素所在行
+        unsigned column = index % m_column;// 元素所在列
         setPos(pElement, row, column);
     }
 }
@@ -82,10 +82,10 @@ void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
 // 设置子元素位置
 void GridLayout::setPos(IElement *pElement, unsigned row, unsigned column)
 {
-    int perWidth = m_width / m_column;  // 每个网格的宽度
-    int perHeight = m_height / m_row;   // 每个网格的高度
+    unsigned perWidth = m_width / m_column;  // 每个网格的宽度
+    unsigned perHeight = m_height / m_row;   // 每个网格的高度
 
-    int left = column*perWidth + (perWidth - pElement->getWidth()) / 2;
-    int top = row*perHeight + (perHeight - pElement->getHeight()) / 2;
+    unsigned left = column*perWidth + (perWidth - pElement->getWidth()) / 2;
+    unsigned top = row*perHeight + (perHeight - pElement->getHeight()) / 2;
     pElement->move(left, top);
 }

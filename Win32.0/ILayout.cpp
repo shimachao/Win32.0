@@ -2,7 +2,7 @@
 
 
 
-ILayout::ILayout(int width, int height) 
+ILayout::ILayout(unsigned width, unsigned height) 
     :IElement(width, height), m_blank(0), m_leftBlank(0), m_rightBlank(0)
     , m_topBlank(0), m_bottomBlank(0)
 {

@@ -2,7 +2,7 @@
 
 
 
-LinearLayout::LinearLayout(int width, int height, Orientation orientation)
+LinearLayout::LinearLayout(unsigned width, unsigned height, Orientation orientation)
     :ILayout(width, height), m_orientation(orientation)
 {
 }
@@ -38,7 +38,7 @@ void LinearLayout::horAdjustSize()
     for each (IElement* var in m_childList)
     {
         // 因为假设每个子元素的高度都不一样，所以每个子元素的垂直方向坐标都要计算一次
-        int top = m_topBlank + (m_height - m_topBlank - m_bottomBlank - var->getHeight()) / 2;
+        unsigned top = m_topBlank + (m_height - m_topBlank - m_bottomBlank - var->getHeight()) / 2;
         var->setTop(top);
     }
 
@@ -47,22 +47,22 @@ void LinearLayout::horAdjustSize()
     {
         //  如果只有一个子元素，直接将其放在中间
         auto var = m_childList.front();
-        int left = (m_width - var->getWidth()) / 2;
+        unsigned left = (m_width - var->getWidth()) / 2;
         var->setLeft(left);
     }
     else
     {
         // 如果有多个元素就均匀放置
-        int spacex = m_width - m_leftBlank - m_rightBlank;  // 水平方向的空间大小
-        int sumWidth = 0;   // 所有控件加起来的宽度
+        unsigned spacex = m_width - m_leftBlank - m_rightBlank;  // 水平方向的空间大小
+        unsigned sumWidth = 0;   // 所有控件加起来的宽度
         for each (IElement* var in m_childList)
         {
             sumWidth += var->getWidth();
         }
         // 控件之间的距离
-        int margin = (spacex - sumWidth) / (m_childList.size() - 1);
+        unsigned margin = (spacex - sumWidth) / (m_childList.size() - 1);
         // 开始设置
-        int left = m_leftBlank;
+        unsigned left = m_leftBlank;
         for each (IElement* var in m_childList)
         {
             var->setLeft(left);
@@ -79,7 +79,7 @@ void LinearLayout::verAdjustSize()
     for each (IElement* var in m_childList)
     {
         // 因为假设每个子元素的宽度都不一样，所以每个子元素的水平方向坐标都要计算一次
-        int left = m_leftBlank + (m_width - m_leftBlank - m_rightBlank - var->getWidth()) / 2;
+        unsigned left = m_leftBlank + (m_width - m_leftBlank - m_rightBlank - var->getWidth()) / 2;
         var->setLeft(left);
     }
 
@@ -88,22 +88,22 @@ void LinearLayout::verAdjustSize()
     {
         //  如果只有一个子元素，直接将其放在中间
         auto var = m_childList.front();
-        int top = (m_height - var->getHeight()) / 2;
+        unsigned top = (m_height - var->getHeight()) / 2;
         var->setTop(top);
     }
     else
     {
         // 如果有多个元素就均匀放置
-        int spacey = m_height - m_topBlank - m_bottomBlank;  // 垂直方向的空间大小
-        int sumHeight = 0;   // 所有控件加起来的高度
+        unsigned spacey = m_height - m_topBlank - m_bottomBlank;  // 垂直方向的空间大小
+        unsigned sumHeight = 0;   // 所有控件加起来的高度
         for each (IElement* var in m_childList)
         {
             sumHeight += var->getHeight();
         }
         // 控件之间的距离
-        int margin = (spacey - sumHeight) / (m_childList.size() - 1);
+        unsigned margin = (spacey - sumHeight) / (m_childList.size() - 1);
         // 开始设置
-        int top = m_topBlank;
+        unsigned top = m_topBlank;
         for each (IElement* var in m_childList)
         {
             var->setTop(top);

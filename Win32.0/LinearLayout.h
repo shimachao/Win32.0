@@ -13,7 +13,7 @@ public:
         horizontal, vertical
     };
 
-    LinearLayout(int width, int height, Orientation orientation = horizontal);
+    LinearLayout(unsigned width, unsigned height, Orientation orientation = horizontal);
     ~LinearLayout();
 
     // Ìí¼Ó×ÓÔªËØ

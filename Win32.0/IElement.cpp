@@ -2,7 +2,7 @@
 
 
 
-IElement::IElement(int width, int height) :
+IElement::IElement(unsigned width, unsigned height) :
     m_left(0), m_top(0), m_width(width), m_height(height)
 {
 }
@@ -14,7 +14,7 @@ IElement::~IElement()
 
 
 // 查询位置和大小
-void IElement::getPos(int &left, int &top, int &width, int &height)
+void IElement::getPos(unsigned &left, unsigned &top, unsigned &width, unsigned &height)
 {
     left = m_left;
     top = m_top;
@@ -23,21 +23,21 @@ void IElement::getPos(int &left, int &top, int &width, int &height)
 }
 
 // 查询大小
-void IElement::getSize(int &width, int &height)
+void IElement::getSize(unsigned &width, unsigned &height)
 {
     width = m_width;
     height = m_height;
 }
 
 // 查询宽度
-int IElement::getWidth()
+unsigned IElement::getWidth()
 {
     return m_width;
 }
 
 
 // 查询高度
-int IElement::getHeight()
+unsigned IElement::getHeight()
 {
     return m_height;
 }

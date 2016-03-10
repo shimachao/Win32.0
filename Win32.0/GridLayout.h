@@ -8,7 +8,7 @@ class GridLayout :
     public ILayout
 {
 public:
-    GridLayout(int width, int height, unsigned row, unsigned column);
+    GridLayout(unsigned width, unsigned height, unsigned row, unsigned column);
     ~GridLayout();
 
     // Ìí¼Ó×ÓÔªËØ
