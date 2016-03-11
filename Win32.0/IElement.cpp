@@ -22,12 +22,22 @@ void IElement::getPos(unsigned &left, unsigned &top, unsigned &width, unsigned &
     height = m_height;
 }
 
+
 // 查询大小
 void IElement::getSize(unsigned &width, unsigned &height)
 {
     width = m_width;
     height = m_height;
 }
+
+
+// 移动
+void IElement::move(unsigned left, unsigned top)
+{
+    m_left = left;
+    m_top = top;
+}
+
 
 // 查询宽度
 unsigned IElement::getWidth()

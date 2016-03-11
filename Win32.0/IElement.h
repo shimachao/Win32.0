@@ -14,7 +14,7 @@ public:
     // 查询大小
     void getSize(unsigned &width, unsigned &height);
     // 移动
-    virtual void move(unsigned left, unsigned top) = 0;
+    void move(unsigned left, unsigned top);
     // 设置宽度
     virtual void setWidth(unsigned width) = 0;
     // 查询宽度
