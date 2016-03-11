@@ -111,3 +111,22 @@ void LinearLayout::verAdjustSize()
         }
     }
 }
+
+
+// 鼠标移到到元素上了
+void LinearLayout::MouseMoveOver(unsigned x, unsigned y)
+{
+    x -= m_left;
+    y -= m_top;
+    // 递归检测鼠标是否落在子元素中
+    for each (IElement* var in m_childList)
+    {
+        if (var->ifMouseIn(x, y))
+        {
+            var->MouseMoveOver(x, y);
+            break;
+        }
+    }
+}
+
+

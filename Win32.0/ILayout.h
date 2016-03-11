@@ -20,7 +20,8 @@ public:
     void setTopBlank(unsigned topBlank);
     // 设置底部留白
     void setBottomBlank(unsigned bottomBlank);
-
+    // 测试鼠标是否落在在元素的捕获范围内
+    bool ifMouseIn(unsigned x, unsigned y);
 
 protected:
     unsigned m_blank;        // 内部边缘留白大小

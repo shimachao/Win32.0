@@ -18,7 +18,9 @@ public:
 
     // 添加子元素
     void add(IElement *pElement);
-
+    // 鼠标移到到元素上了
+    void MouseMoveOver(unsigned x, unsigned y);
+    
 private:
     // 布局方向为水平时的调整子元素位置方法
     void horAdjustSize();
