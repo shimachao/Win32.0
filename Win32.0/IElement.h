@@ -31,6 +31,28 @@ public:
     void setLeft(unsigned left);
     // 查询水平方向位置
     unsigned getLeft();
+
+    // 设置边缘宽度
+    void setMargin(unsigned margin);
+    // 设置上边缘
+    void setTopMargin(unsigned margin);
+    // 设置下边缘
+    void setBottomMargin(unsigned margin);
+    // 设置左边缘
+    void setLeftMargin(unsigned margin);
+    // 设置右边缘
+    void setRightMargin(unsigned margin);
+    // 查询边缘宽度
+    unsigned getMargin();
+    // 查询上边缘宽度
+    unsigned getTopMargin();
+    // 查询下边缘宽度
+    unsigned getBottomMargin();
+    // 查询左边缘宽度
+    unsigned getLeftMargin();
+    // 查询右边缘宽度
+    unsigned getRightMargin();
+
     // 鼠标移到到元素上了
     virtual void MouseMoveOver(unsigned x, unsigned y) = 0;
     // 测试鼠标是否落在在元素的捕获范围内
@@ -41,5 +63,11 @@ protected:
     unsigned m_top;      // 上边界
     unsigned m_width;    // 宽度
     unsigned m_height;   // 高度
+
+    unsigned m_margin = 0;  // 边缘宽度
+    unsigned m_leftMargin = 0;  // 左边缘
+    unsigned m_rightMargin = 0; // 右边缘
+    unsigned m_topMargin = 0;   // 上边缘
+    unsigned m_bottomMargin = 0;    // 下边缘
 };
 

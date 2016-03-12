@@ -80,3 +80,92 @@ unsigned IElement::getLeft()
     return m_left;
 }
 
+
+// 设置边缘宽度
+void IElement::setMargin(unsigned margin)
+{
+    m_margin = margin;
+
+    if (m_topMargin == 0)
+    {
+        m_topMargin = margin;
+    }
+
+    if (m_bottomMargin == 0)
+    {
+        m_bottomMargin = margin;
+    }
+
+    if (m_leftMargin == 0)
+    {
+        m_leftMargin = margin;
+    }
+
+    if (m_rightMargin == 0)
+    {
+        m_rightMargin = margin;
+    }
+}
+
+
+// 设置上边缘
+void IElement::setTopMargin(unsigned margin)
+{
+    m_topMargin = margin;
+}
+
+
+// 设置下边缘
+void IElement::setBottomMargin(unsigned margin)
+{
+    m_bottomMargin = margin;
+}
+
+
+// 设置左边缘
+void IElement::setLeftMargin(unsigned margin)
+{
+    m_left = margin;
+}
+
+
+// 设置右边缘
+void IElement::setRightMargin(unsigned margin)
+{
+    m_rightMargin = margin;
+}
+
+
+// 查询边缘宽度
+unsigned IElement::getMargin()
+{
+    return m_margin;
+}
+
+
+// 查询上边缘宽度
+unsigned IElement::getTopMargin()
+{
+    return m_topMargin;
+}
+
+
+// 查询下边缘宽度
+unsigned IElement::getBottomMargin()
+{
+    return m_bottomMargin;
+}
+
+
+// 查询左边缘宽度
+unsigned IElement::getLeftMargin()
+{
+    return m_leftMargin;
+}
+
+
+// 查询右边缘宽度
+unsigned IElement::getRightMargin()
+{
+    return m_rightMargin;
+}
