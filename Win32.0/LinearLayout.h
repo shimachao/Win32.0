@@ -22,10 +22,10 @@ public:
     void MouseMoveOver(unsigned x, unsigned y);
     
 private:
-    // 布局方向为水平时的调整子元素位置方法
-    void horAdjustSize();
-    // 布局方向为垂直时的调整子元素位置方法
-    void verAdjustSize();
+    // 布局方向为水平时的添加方法
+    void horAdd(IElement *pElment);
+    // 布局方向为垂直时的添加方法
+    void verAdd(IElement *pElment);
 
 private:
     list<IElement*> m_childList;    // 子元素列表

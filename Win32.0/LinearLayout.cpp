@@ -22,94 +22,56 @@ void LinearLayout::add(IElement *pElement)
     // 假设布局是可以放下所有子控件的，放不下的话，对结果不做任何保证
     if (m_orientation == horizontal)
     {
-        horAdjustSize();
+        horAdd(pElement);
     }
     else
     {
-        verAdjustSize();
+        verAdd(pElement);
     }
 }
 
 
-// 布局方向为水平时的调整子元素位置方法
-void LinearLayout::horAdjustSize()
+// 布局方向为水平时的添加方法
+void LinearLayout::horAdd(IElement *pElment)
 {
-    // 先计算并设置各个控件垂直方向的坐标，让其在垂直方向上居中
-    for each (IElement* var in m_childList)
+    // 计算x坐标
+    static unsigned margin = 0; // 元素之间的水平边缘间隔
+    static unsigned left = m_leftBlank; // 开始摆放元素的起始x坐标
+
+    if (pElment->getLeftMargin() > margin)
     {
-        // 因为假设每个子元素的高度都不一样，所以每个子元素的垂直方向坐标都要计算一次
-        unsigned top = m_topBlank + (m_height - m_topBlank - m_bottomBlank - var->getHeight()) / 2;
-        var->setTop(top);
+        margin = pElment->getLeftMargin();
     }
 
-    // 再计算每个控件的水平坐标
-    if (m_childList.size() == 1)
-    {
-        //  如果只有一个子元素，直接将其放在中间
-        auto var = m_childList.front();
-        unsigned left = (m_width - var->getWidth()) / 2;
-        var->setLeft(left);
-    }
-    else
-    {
-        // 如果有多个元素就均匀放置
-        unsigned spacex = m_width - m_leftBlank - m_rightBlank;  // 水平方向的空间大小
-        unsigned sumWidth = 0;   // 所有控件加起来的宽度
-        for each (IElement* var in m_childList)
-        {
-            sumWidth += var->getWidth();
-        }
-        // 控件之间的距离
-        unsigned margin = (spacex - sumWidth) / (m_childList.size() - 1);
-        // 开始设置
-        unsigned left = m_leftBlank;
-        for each (IElement* var in m_childList)
-        {
-            var->setLeft(left);
-            left += var->getWidth() + margin;
-        }
-    }
+    // 计算元素y坐标，让元素在垂直方向上居中
+    unsigned top = (m_height - pElment->getHeight()) / 2;
+    pElment->move(left + margin, top);
+
+    //更新left和margin
+    left += pElment->getWidth();
+    margin = pElment->getRightMargin();
 }
 
 
-// 布局方向为垂直时的调整子元素位置方法
-void LinearLayout::verAdjustSize()
+// 布局方向为垂直时的添加方法
+void LinearLayout::verAdd(IElement *pElment)
 {
-    // 先计算并设置各个控件水平方向的坐标，让其在水平方向上居中
-    for each (IElement* var in m_childList)
+    // 计算y坐标
+    static unsigned margin = 0; // 元素之间的垂直边缘间隔
+    static unsigned top = m_topBlank;   // 开始摆放元素的起始y坐标
+
+    if (pElment->getTopMargin() > margin)
     {
-        // 因为假设每个子元素的宽度都不一样，所以每个子元素的水平方向坐标都要计算一次
-        unsigned left = m_leftBlank + (m_width - m_leftBlank - m_rightBlank - var->getWidth()) / 2;
-        var->setLeft(left);
+        margin = pElment->getTopMargin();
     }
 
-    // 再计算每个控件垂直方向上的坐标
-    if (m_childList.size() == 1)
-    {
-        //  如果只有一个子元素，直接将其放在中间
-        auto var = m_childList.front();
-        unsigned top = (m_height - var->getHeight()) / 2;
-        var->setTop(top);
-    }
-    else
-    {
-        // 如果有多个元素就均匀放置
-        unsigned spacey = m_height - m_topBlank - m_bottomBlank;  // 垂直方向的空间大小
-        unsigned sumHeight = 0;   // 所有控件加起来的高度
-        for each (IElement* var in m_childList)
-        {
-            sumHeight += var->getHeight();
-        }
-        // 控件之间的距离
-        unsigned margin = (spacey - sumHeight) / (m_childList.size() - 1);
-        // 开始设置
-        unsigned top = m_topBlank;
-        for each (IElement* var in m_childList)
-        {
-            var->setTop(top);
-            top += var->getHeight() + margin;
-        }
-    }
+    // 计算x坐标，让元素在水平方向上居中
+    unsigned left = (m_width - pElment->getWidth()) / 2;
+    pElment->move(left, top + margin);
+
+    // 跟新top和margin
+    top += pElment->getHeight();
+    margin = pElment->getBottomMargin();
 }
 
 
