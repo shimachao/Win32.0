@@ -33,6 +33,9 @@
     <ClInclude Include="AbsoluteLayout.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FlowLinearLayout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IElement.cpp">
@@ -51,6 +54,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="AbsoluteLayout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowLinearLayout.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

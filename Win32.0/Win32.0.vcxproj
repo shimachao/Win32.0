@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbsoluteLayout.h" />
+    <ClInclude Include="FlowLinearLayout.h" />
     <ClInclude Include="GridLayout.h" />
     <ClInclude Include="IControl.h" />
     <ClInclude Include="IElement.h" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbsoluteLayout.cpp" />
+    <ClCompile Include="FlowLinearLayout.cpp" />
     <ClCompile Include="GridLayout.cpp" />
     <ClCompile Include="IControl.cpp" />
     <ClCompile Include="IElement.cpp" />
