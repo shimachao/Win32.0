@@ -8,8 +8,6 @@ public:
     ILayout(unsigned width, unsigned height);
     ~ILayout();
 
-    // 添加子元素
-    virtual void add(IElement *pElement) = 0;
     // 设置留白
     void setBlank(unsigned blank);
     // 设置左留白
