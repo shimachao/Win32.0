@@ -74,6 +74,99 @@ void LinearLayout::verAdd(IElement *pElment)
     margin = pElment->getBottomMargin();
 }
 
+// 调整大小来以便放下所有子元素
+void LinearLayout::resizeToFit()
+{
+    if (m_orientation == horizontal)
+    {
+        horResizeToFit();
+    }
+    else
+    {
+        verResizeToFit();
+    }
+}
+
+
+// 布局方向为水平时resizeToFit方法
+void LinearLayout::horResizeToFit()
+{
+    // 调整宽度
+    unsigned margin = 0;
+    unsigned sumWidth = m_leftBlank + m_rightBlank;
+    for each (IElement* var in m_childList)
+    {
+        if (var->getLeftMargin() > margin)
+        {
+            margin = var->getLeftMargin();
+        }
+        sumWidth += margin + var->getWidth();
+        margin = var->getRightMargin();
+    }
+    m_width = sumWidth;
+
+    // 调整高度
+    // 找出子元素中所需高度的最大值
+    unsigned height = 0;
+    for each (auto var in m_childList)
+    {
+        unsigned h = var->getTopMargin() + var->getBottomMargin() + var->getHeight();
+        if (h > height)
+        {
+            height = h;
+        }
+    }
+    m_height = height + m_topBlank + m_bottomBlank;
+
+    // 调整子元素的y坐标，保持其在y方向上居中
+    for each (auto var in m_childList)
+    {
+        unsigned top = (m_height - var->getHeight()) / 2;
+        var->setTop(top);
+    }
+}
+
+
+// 布局方向为垂直时resizeToFit方法
+void LinearLayout::verResizeToFit()
+{
+    // 调整高度
+    unsigned sumHeight = m_topBlank + m_bottomBlank;
+    unsigned margin = 0;
+
+    for each (auto var in m_childList)
+    {
+        if (var->getTopMargin() > margin)
+        {
+            margin = var->getTopMargin();
+        }
+
+        sumHeight += margin + var->getHeight();
+        margin = var->getBottomMargin();
+    }
+    m_height = sumHeight;
+
+    // 调整宽度
+    // 找出子元素中所需宽度的最大值
+    unsigned width = 0;
+    for each (auto var in m_childList)
+    {
+        unsigned w = var->getLeftMargin() + var->getWidth() + var->getRightMargin();
+        if (w > width)
+        {
+            width = w;
+        }
+    }
+    m_width = width + m_leftBlank + m_rightBlank;
+
+    // 调整子元素的x坐标，保持其在x方向上居中
+    for each (auto var in m_childList)
+    {
+        unsigned left = (m_width - var->getWidth()) / 2;
+        var->setLeft(left);
+    }
+}
+
 
 // 鼠标移到到元素上了
 void LinearLayout::MouseMoveOver(unsigned x, unsigned y)
@@ -90,5 +183,3 @@ void LinearLayout::MouseMoveOver(unsigned x, unsigned y)
         }
     }
 }
-
-
