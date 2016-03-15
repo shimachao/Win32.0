@@ -2,7 +2,7 @@
 #include "IElement.h"
 enum Event
 {
-    clicked
+    clicked, check, uncheck
 };
 
 // ¿Ø¼ş»ùÀà
