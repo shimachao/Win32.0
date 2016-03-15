@@ -45,17 +45,11 @@ public:
     void LMBUp();
 
 private:
-    enum State
-    {
-        Checked, Unchecked
-    };
-private:
     string m_text = "radio button"; // 文本
     TextPosition m_textPos = right;  // 文本位置，默认在右边
     bool m_ifMouseIn = false;   // 鼠标是否在控件内
     bool m_ifGotFocus = false;  // 是否获得焦点
     bool m_ifChecked = false;   // 是否被选中
-    State m_state = Unchecked;  // 单选按钮的状态，选中or没选中
     map<Event, function<void()>> m_eventActionMap;  // 事件和动作之间的映射
 };
 

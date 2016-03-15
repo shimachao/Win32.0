@@ -65,9 +65,11 @@ void RadioButton::mouseMoveOut()
 // 鼠标左键按下（在控件捕获范围内）
 void RadioButton::LMBDown()
 {
-    if (m_state == Unchecked)
+    // 修改选中状态
+    m_ifChecked = !m_ifChecked;
+
+    if (m_ifChecked)
     {
-        m_state = Checked;
         // 如果连接了动作，就执行对应的动作
         auto it = m_eventActionMap.find(check);
         if (it != m_eventActionMap.end())
@@ -77,7 +79,6 @@ void RadioButton::LMBDown()
     }
     else
     {
-        m_state = Unchecked;
         // 如果连接了动作，就执行对应的动作
         auto it = m_eventActionMap.find(uncheck);
         if (it != m_eventActionMap.end())
