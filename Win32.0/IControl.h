@@ -1,0 +1,31 @@
+#pragma once
+#include "IElement.h"
+enum Event
+{
+    clicked
+};
+
+// 控件基类
+
+class IControl :public IElement
+{
+public:
+    IControl(unsigned width, unsigned height);
+    ~IControl();
+    
+    // 鼠标移动到控件上
+    virtual void mouseMoveIn() = 0;
+    // 鼠标移出控件
+    virtual void mouseMoveOut() = 0;
+
+    // 鼠标左键按下（在控件捕获范围内）
+    virtual void LMBDown() = 0;
+    // 鼠标左键弹起（在控件捕获范围内）
+    virtual void RMBDown() = 0;
+
+    // 获得焦点
+    virtual void getFocus() = 0;
+    // 失去焦点
+    virtual void loseFocus() = 0;
+};
+
