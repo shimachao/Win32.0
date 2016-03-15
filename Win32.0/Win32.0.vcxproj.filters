@@ -36,6 +36,15 @@
     <ClInclude Include="FlowLinearLayout.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="StaticText.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IElement.cpp">
@@ -57,6 +66,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="FlowLinearLayout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticText.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioButton.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
