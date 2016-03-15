@@ -21,7 +21,7 @@ public:
     // 鼠标左键按下（在控件捕获范围内）
     virtual void LMBDown() = 0;
     // 鼠标左键弹起（在控件捕获范围内）
-    virtual void RMBDown() = 0;
+    virtual void LMBUp() = 0;
 
     // 获得焦点
     virtual void getFocus() = 0;

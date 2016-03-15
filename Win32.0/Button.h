@@ -32,7 +32,7 @@ public:
     // 鼠标左键按下（在控件捕获范围内）
     void LMBDown();
     // 鼠标左键弹起（在控件捕获范围内）
-    void RMBDown();
+    void LMBUp();
 
 private:
     enum ButtonState

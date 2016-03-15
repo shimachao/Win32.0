@@ -56,7 +56,7 @@ void Button::LMBDown()
 
 
 // 鼠标左键弹起（在控件捕获范围内）
-void Button::RMBDown()
+void Button::LMBUp()
 {
     if (m_state == Pressed)
     {
