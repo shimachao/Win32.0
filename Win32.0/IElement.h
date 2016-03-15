@@ -54,7 +54,7 @@ public:
     unsigned getRightMargin();
 
     // 鼠标移到到元素上了
-    virtual void MouseMoveOver(unsigned x, unsigned y) = 0;
+    virtual void mouseMoveOver(unsigned x, unsigned y) = 0;
     // 测试鼠标是否落在在元素的捕获范围内
     virtual bool ifMouseIn(unsigned x, unsigned y) = 0;
 
