@@ -29,6 +29,6 @@ public:
     virtual void loseFocus() = 0;
 
     // 测试鼠标是否落在在元素的捕获范围内
-    virtual bool ifMouseIn(unsigned x, unsigned y) = 0;
+    virtual bool ifMouseIn(unsigned x, unsigned y);
 };
 
