@@ -44,6 +44,9 @@ public:
     // 鼠标左键弹起（在控件捕获范围内）
     void LMBUp();
 
+    // 测试鼠标是否落在在元素的捕获范围内
+    bool ifMouseIn(unsigned x, unsigned y);
+
 private:
     string m_text = "radio button"; // 文本
     TextPosition m_textPos = right;  // 文本位置，默认在右边

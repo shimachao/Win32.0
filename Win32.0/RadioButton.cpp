@@ -92,3 +92,31 @@ void RadioButton::LMBDown()
 void RadioButton::LMBUp()
 {
 }
+
+
+// 测试鼠标是否落在在元素的捕获范围内
+bool RadioButton::ifMouseIn(unsigned x, unsigned y)
+{
+    if (m_textPos == right)
+    {
+        if (x >=0 && x << m_height && y >= 0 && y <= m_height)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else if (m_textPos == left)
+    {
+        if (x >= (m_width - m_height) && x <= m_width && y >= 0 && y <= m_height)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
