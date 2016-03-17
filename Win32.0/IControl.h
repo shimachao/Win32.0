@@ -13,11 +13,6 @@ public:
     IControl(unsigned width, unsigned height);
     ~IControl();
     
-    // 鼠标移动到控件上
-    virtual void mouseMoveIn() = 0;
-    // 鼠标移出控件
-    virtual void mouseMoveOut() = 0;
-
     // 鼠标左键按下（在控件捕获范围内）
     virtual void LMBDown() = 0;
     // 鼠标左键弹起（在控件捕获范围内）
