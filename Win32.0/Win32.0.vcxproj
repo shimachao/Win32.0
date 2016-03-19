@@ -156,6 +156,8 @@
     <ClInclude Include="LinearLayout.h" />
     <ClInclude Include="RadioButton.h" />
     <ClInclude Include="StaticText.h" />
+    <ClInclude Include="Win32Helper.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbsoluteLayout.cpp" />
@@ -168,6 +170,9 @@
     <ClCompile Include="LinearLayout.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="StaticText.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Win32Helper.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
