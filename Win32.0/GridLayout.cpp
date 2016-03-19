@@ -72,8 +72,6 @@ void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
         m_pMark[index] = true;
         m_childArray[index] = pElement;
         // 设置该元素坐标
-        unsigned row = index / m_column; // 元素所在行
-        unsigned column = index % m_column;// 元素所在列
         setPos(pElement, row, column);
     }
 }
