@@ -15,6 +15,8 @@ public:
     void add(IElement *pElement);
     // 在具体的某行某列添加子元素
     void add(IElement *pElement, unsigned row, unsigned column);
+    // 鼠标移动到元素范围内
+    void mouseMoveIn(unsigned x, unsigned y);
 
 private:
     // 设置子元素位置

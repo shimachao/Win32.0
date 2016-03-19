@@ -84,3 +84,17 @@ void GridLayout::setPos(IElement *pElement, unsigned row, unsigned column)
     unsigned top = row*perHeight + (perHeight - pElement->getHeight()) / 2;
     pElement->move(left, top);
 }
+
+
+// 鼠标移动到元素范围内
+void GridLayout::mouseMoveIn(unsigned x, unsigned y)
+{
+    for each (const auto& var in m_childMap)
+    {
+        if (var.second->ifMouseIn(x - m_left, y - m_top))
+        {
+            var.second->mouseMoveIn(x - m_left, y - m_top);
+            break;
+        }
+    }
+}
