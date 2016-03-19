@@ -1,0 +1,32 @@
+#pragma once
+#include <Windows.h>
+
+#ifndef HINST_THISCOMPONENT
+EXTERN_C IMAGE_DOS_HEADER __ImageBase;
+#define HINST_THISCOMPONENT ((HINSTANCE)&__ImageBase)
+#endif
+
+// 窗口类
+class Window
+{
+public:
+    Window() = delete;
+    Window(int width, int height);
+    ~Window();
+
+    // 初始化
+    bool Initialize();
+    // 将窗口移到屏幕中间
+    void MoveToCenter();
+    // 运行
+    void Run();
+
+private:
+    // 窗口过程函数
+    static LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+    // 变量
+    HWND    m_hwnd;     //  窗口句柄
+    int     m_width;    // 窗口宽度，单位为像素
+    int     m_height;   // 窗口高度，单位为像素
+};
+
