@@ -54,7 +54,7 @@ public:
     unsigned getRightMargin();
 
     // 鼠标移动到元素范围内
-    virtual void mouseMoveIn() = 0;
+    virtual void mouseMoveIn(unsigned x, unsigned y) = 0;
     // 鼠标移出元素范围外
     virtual void mouseMoveOut() = 0;
     // 测试鼠标是否落在在元素的捕获范围内
