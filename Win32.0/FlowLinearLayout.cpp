@@ -42,7 +42,7 @@ void FlowLinearLayout::horRepositionX()
 {
     // 计算元素之间在水平方向上的间隔距离
     unsigned sumWidth = 0;
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         sumWidth += var->getWidth();
     }
@@ -53,7 +53,7 @@ void FlowLinearLayout::horRepositionX()
     }
     // 设置元素的x坐标
     unsigned left = m_leftBlank;
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         var->setLeft(left);
         left += margin;
@@ -66,7 +66,7 @@ void FlowLinearLayout::verRepositionY()
 {
     // 计算元素之间在垂直方向上的间隔距离
     unsigned sumHeight = 0;
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         sumHeight += var->getHeight();
     }
@@ -77,7 +77,7 @@ void FlowLinearLayout::verRepositionY()
     }
     // 设置元素的y坐标
     unsigned top = m_topBlank;
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         var->setTop(top);
         top += margin;
@@ -88,7 +88,7 @@ void FlowLinearLayout::verRepositionY()
 // 鼠标移动到元素范围内
 void FlowLinearLayout::mouseMoveIn(unsigned x, unsigned y)
 {
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         if (var->ifMouseIn(x - m_left, y - m_top))
         {

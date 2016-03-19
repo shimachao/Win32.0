@@ -24,7 +24,7 @@ void AbsoluteLayout::add(IElement *pElement, unsigned left, unsigned top)
 // 鼠标移动到元素范围内
 void AbsoluteLayout::mouseMoveIn(unsigned x, unsigned y)
 {
-    for each (auto var in m_childArray)
+    for each (const auto& var in m_childArray)
     {
         if (var->ifMouseIn(x - m_left, y - m_top))
         {

@@ -94,7 +94,7 @@ void LinearLayout::horResizeToFit()
     // 调整宽度
     unsigned margin = 0;
     unsigned sumWidth = m_leftBlank + m_rightBlank;
-    for each (IElement* var in m_childList)
+    for each (const auto& var in m_childList)
     {
         if (var->getLeftMargin() > margin)
         {
@@ -108,7 +108,7 @@ void LinearLayout::horResizeToFit()
     // 调整高度
     // 找出子元素中所需高度的最大值
     unsigned height = 0;
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         unsigned h = var->getTopMargin() + var->getBottomMargin() + var->getHeight();
         if (h > height)
@@ -119,7 +119,7 @@ void LinearLayout::horResizeToFit()
     m_height = height + m_topBlank + m_bottomBlank;
 
     // 调整子元素的y坐标，保持其在y方向上居中
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         unsigned top = (m_height - var->getHeight()) / 2;
         var->setTop(top);
@@ -134,7 +134,7 @@ void LinearLayout::verResizeToFit()
     unsigned sumHeight = m_topBlank + m_bottomBlank;
     unsigned margin = 0;
 
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         if (var->getTopMargin() > margin)
         {
@@ -149,7 +149,7 @@ void LinearLayout::verResizeToFit()
     // 调整宽度
     // 找出子元素中所需宽度的最大值
     unsigned width = 0;
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         unsigned w = var->getLeftMargin() + var->getWidth() + var->getRightMargin();
         if (w > width)
@@ -160,7 +160,7 @@ void LinearLayout::verResizeToFit()
     m_width = width + m_leftBlank + m_rightBlank;
 
     // 调整子元素的x坐标，保持其在x方向上居中
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         unsigned left = (m_width - var->getWidth()) / 2;
         var->setLeft(left);
@@ -171,7 +171,7 @@ void LinearLayout::verResizeToFit()
 // 鼠标移动到元素范围内
 void LinearLayout::mouseMoveIn(unsigned x, unsigned y)
 {
-    for each (auto var in m_childList)
+    for each (const auto& var in m_childList)
     {
         if (var->ifMouseIn(x - m_left, y - m_top))
         {
