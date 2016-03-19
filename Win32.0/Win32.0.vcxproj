@@ -170,6 +170,7 @@
     <ClCompile Include="LinearLayout.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="StaticText.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Win32Helper.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
