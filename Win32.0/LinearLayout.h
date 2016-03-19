@@ -18,8 +18,6 @@ public:
 
     // 添加子元素
     void add(IElement *pElement);
-    // 鼠标移到到元素上了
-    void MouseMoveOver(unsigned x, unsigned y);
     // 调整大小来以便放下所有子元素
     void resizeToFit();
     
