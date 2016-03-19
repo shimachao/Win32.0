@@ -79,6 +79,10 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
 
     switch (message)
     {
+    case WM_CLOSE:
+        DestroyWindow(hWnd);
+        break;
+
     case WM_DISPLAYCHANGE:
         InvalidateRect(hWnd, NULL, FALSE);
         break;
@@ -86,9 +90,12 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+
+    default:
+        return DefWindowProc(hWnd, message, wParam, lParam);
     }
 
-    return DefWindowProc(hWnd, message, wParam, lParam);
+    return 0;
 }
 
 

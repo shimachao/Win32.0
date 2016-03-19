@@ -2,7 +2,7 @@
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-    Window window(100, 100);
+    Window window(600, 400);
     window.Initialize();
     window.Run();
 
