@@ -4,15 +4,12 @@
 
 GridLayout::GridLayout(unsigned width, unsigned height, unsigned row, unsigned column) 
     :ILayout(width, height), m_row(row), m_column(column), m_pMark(nullptr)
-    , m_childArray(nullptr)
 {
     m_pMark = new bool[m_row * m_column];
-    m_childArray = new IElement*[m_row * m_column];
 
     for (size_t i = 0; i < m_row * m_column; i++)
     {
         m_pMark[i] = false;
-        m_childArray[i] = nullptr;
     }
 }
 
@@ -45,7 +42,7 @@ void GridLayout::add(IElement *pElement)
     else
     {
         m_pMark[i] = true;
-        m_childArray[i] = pElement;
+        m_childMap[i] = pElement;
         // 设置该子元素的坐标
         unsigned row = i / m_column; // 元素所在行
         unsigned column = i % m_column;// 元素所在列
@@ -70,7 +67,7 @@ void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
     else
     {
         m_pMark[index] = true;
-        m_childArray[index] = pElement;
+        m_childMap[index] = pElement;
         // 设置该元素坐标
         setPos(pElement, row, column);
     }

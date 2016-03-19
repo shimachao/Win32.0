@@ -24,6 +24,6 @@ private:
     unsigned    m_row;  // 行数
     unsigned    m_column;   // 列数
     bool    *m_pMark;   // 用来记录网格的使用情况
-    IElement*   *m_childArray; // 用来保存子元素的字典
+    map<unsigned, IElement*> m_childMap; // 用来保存子元素的字典
 };
 
