@@ -20,6 +20,8 @@ public:
     void add(IElement *pElement);
     // 调整大小来以便放下所有子元素
     void resizeToFit();
+    // 鼠标移动到元素范围内
+    void mouseMoveIn(unsigned x, unsigned y);
     
 private:
     // 布局方向为水平时的添加方法
