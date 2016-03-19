@@ -21,6 +21,9 @@ public:
     // 测试鼠标是否落在在元素的捕获范围内
     bool ifMouseIn(unsigned x, unsigned y);
 
+    // 鼠标移动到元素范围内
+    virtual void mouseMoveIn(unsigned x, unsigned y);
+
 protected:
     unsigned m_blank;        // 内部边缘留白大小
     unsigned m_leftBlank;    // 内部左边缘留白

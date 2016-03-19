@@ -23,3 +23,10 @@ bool IControl::ifMouseIn(unsigned x, unsigned y)
         return false;
     }
 }
+
+
+// 鼠标移动到元素范围内
+void IControl::mouseMoveIn(unsigned x, unsigned y)
+{
+    // 空实习，供子类覆盖或继承
+}
