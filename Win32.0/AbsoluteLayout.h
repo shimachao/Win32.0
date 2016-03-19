@@ -14,6 +14,8 @@ public:
 
     // 添加子元素，参数left，top为子元素左上角坐标
     void add(IElement *pElement, unsigned left, unsigned top);
+    // 鼠标移动到元素范围内
+    void mouseMoveIn(unsigned x, unsigned y);
 
 private:
     vector<IElement*>   m_childArray;
