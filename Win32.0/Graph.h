@@ -1,7 +1,6 @@
 #pragma once
 #include <Windows.h>
-#include <gdiplus.h>
-using Gdiplus::GdiplusStartupInput;
+#include "Base.h"
 
 class Graph
 {
@@ -13,4 +12,3 @@ private:
     ULONG_PTR m_gdiplusToken;
     GdiplusStartupInput m_gdiplusStartupInput;
 };
-
