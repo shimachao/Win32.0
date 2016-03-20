@@ -34,7 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>Windows7.1SDK</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -149,6 +149,7 @@
     <ClInclude Include="AbsoluteLayout.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="FlowLinearLayout.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="GridLayout.h" />
     <ClInclude Include="IControl.h" />
     <ClInclude Include="IElement.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="AbsoluteLayout.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="FlowLinearLayout.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="GridLayout.cpp" />
     <ClCompile Include="IControl.cpp" />
     <ClCompile Include="IElement.cpp" />
