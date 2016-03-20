@@ -2,6 +2,8 @@
 #include <Windows.h>
 #include <gdiplus.h>
 
+extern Gdiplus::Pen blackPen;
+
 using Gdiplus::Graphics;
 using Gdiplus::Rect;
 using Gdiplus::RectF;
