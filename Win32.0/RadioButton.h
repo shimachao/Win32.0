@@ -18,7 +18,7 @@ public:
         left, right
     };
 
-    RadioButton(unsigned width, unsigned height, string text);
+    RadioButton(int width, int height, string text);
     ~RadioButton();
 
     // 连接事件和动作
@@ -45,7 +45,7 @@ public:
     void LMBUp();
 
     // 测试鼠标是否落在在元素的捕获范围内
-    bool ifMouseIn(unsigned x, unsigned y);
+    bool ifMouseIn(int x, int y);
 
 private:
     string m_text = "radio button"; // 文本

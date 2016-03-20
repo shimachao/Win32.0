@@ -13,7 +13,7 @@ public:
         horizontal, vertical
     };
 
-    LinearLayout(unsigned width, unsigned height, Orientation orientation = horizontal);
+    LinearLayout(int width, int height, Orientation orientation = horizontal);
     ~LinearLayout();
 
     // 添加子元素
@@ -21,7 +21,7 @@ public:
     // 调整大小来以便放下所有子元素
     void resizeToFit();
     // 鼠标移动到元素范围内
-    void mouseMoveIn(unsigned x, unsigned y);
+    void mouseMoveIn(int x, int y);
     
 private:
     // 布局方向为水平时的添加方法

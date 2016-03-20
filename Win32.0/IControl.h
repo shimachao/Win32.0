@@ -10,7 +10,7 @@ enum Event
 class IControl :public IElement
 {
 public:
-    IControl(unsigned width, unsigned height);
+    IControl(int width, int height);
     ~IControl();
     
     // 鼠标左键按下（在控件捕获范围内）
@@ -24,8 +24,8 @@ public:
     virtual void loseFocus() = 0;
 
     // 测试鼠标是否落在在元素的捕获范围内
-    virtual bool ifMouseIn(unsigned x, unsigned y);
+    virtual bool ifMouseIn(int x, int y);
     // 鼠标移动到元素范围内
-    virtual void mouseMoveIn(unsigned x, unsigned y);
+    virtual void mouseMoveIn(int x, int y);
 };
 

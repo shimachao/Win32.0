@@ -9,13 +9,13 @@ class AbsoluteLayout :
     public ILayout
 {
 public:
-    AbsoluteLayout(unsigned width, unsigned height);
+    AbsoluteLayout(int width, int height);
     ~AbsoluteLayout();
 
     // 添加子元素，参数left，top为子元素左上角坐标
-    void add(IElement *pElement, unsigned left, unsigned top);
+    void add(IElement *pElement, int left, int top);
     // 鼠标移动到元素范围内
-    void mouseMoveIn(unsigned x, unsigned y);
+    void mouseMoveIn(int x, int y);
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) override;
 

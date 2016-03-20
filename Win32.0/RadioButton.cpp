@@ -2,7 +2,7 @@
 
 
 
-RadioButton::RadioButton(unsigned width, unsigned height, string text)
+RadioButton::RadioButton(int width, int height, string text)
     :IControl(width, height)
 {
 }
@@ -95,7 +95,7 @@ void RadioButton::LMBUp()
 
 
 // 测试鼠标是否落在在元素的捕获范围内
-bool RadioButton::ifMouseIn(unsigned x, unsigned y)
+bool RadioButton::ifMouseIn(int x, int y)
 {
     if (m_textPos == right)
     {

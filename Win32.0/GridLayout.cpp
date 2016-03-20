@@ -2,7 +2,7 @@
 
 
 
-GridLayout::GridLayout(unsigned width, unsigned height, unsigned row, unsigned column) 
+GridLayout::GridLayout(int width, int height, int row, int column) 
     :ILayout(width, height), m_row(row), m_column(column), m_pMark(nullptr)
 {
     m_pMark = new bool[m_row * m_column];
@@ -28,7 +28,7 @@ GridLayout::~GridLayout()
 void GridLayout::add(IElement *pElement)
 {
     // 找到一个空闲的网格
-    unsigned i = 0;
+    int i = 0;
     while (!m_pMark[i])
     {
         i++;
@@ -44,17 +44,17 @@ void GridLayout::add(IElement *pElement)
         m_pMark[i] = true;
         m_childMap[i] = pElement;
         // 设置该子元素的坐标
-        unsigned row = i / m_column; // 元素所在行
-        unsigned column = i % m_column;// 元素所在列
+        int row = i / m_column; // 元素所在行
+        int column = i % m_column;// 元素所在列
         setPos(pElement, row, column);
     }
 }
 
 
 // 在具体的某行某列添加子元素
-void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
+void GridLayout::add(IElement *pElement, int row, int column)
 {
-    unsigned index = row * m_column + column;
+    int index = row * m_column + column;
 
     if (row >= m_row 
         || column >= m_column 
@@ -75,19 +75,19 @@ void GridLayout::add(IElement *pElement, unsigned row, unsigned column)
 
 
 // 设置子元素位置
-void GridLayout::setPos(IElement *pElement, unsigned row, unsigned column)
+void GridLayout::setPos(IElement *pElement, int row, int column)
 {
-    unsigned perWidth = m_width / m_column;  // 每个网格的宽度
-    unsigned perHeight = m_height / m_row;   // 每个网格的高度
+    int perWidth = m_width / m_column;  // 每个网格的宽度
+    int perHeight = m_height / m_row;   // 每个网格的高度
 
-    unsigned left = column*perWidth + (perWidth - pElement->getWidth()) / 2;
-    unsigned top = row*perHeight + (perHeight - pElement->getHeight()) / 2;
+    int left = column*perWidth + (perWidth - pElement->getWidth()) / 2;
+    int top = row*perHeight + (perHeight - pElement->getHeight()) / 2;
     pElement->move(left, top);
 }
 
 
 // 鼠标移动到元素范围内
-void GridLayout::mouseMoveIn(unsigned x, unsigned y)
+void GridLayout::mouseMoveIn(int x, int y)
 {
     for each (const auto& var in m_childMap)
     {

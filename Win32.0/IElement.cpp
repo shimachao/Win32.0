@@ -2,7 +2,7 @@
 
 
 
-IElement::IElement(unsigned width, unsigned height) :
+IElement::IElement(int width, int height) :
     m_left(0), m_top(0), m_width(width), m_height(height)
 {
 }
@@ -14,7 +14,7 @@ IElement::~IElement()
 
 
 // 查询位置和大小
-void IElement::getPos(unsigned &left, unsigned &top, unsigned &width, unsigned &height)
+void IElement::getPos(int &left, int &top, int &width, int &height)
 {
     left = m_left;
     top = m_top;
@@ -24,7 +24,7 @@ void IElement::getPos(unsigned &left, unsigned &top, unsigned &width, unsigned &
 
 
 // 查询大小
-void IElement::getSize(unsigned &width, unsigned &height)
+void IElement::getSize(int &width, int &height)
 {
     width = m_width;
     height = m_height;
@@ -32,7 +32,7 @@ void IElement::getSize(unsigned &width, unsigned &height)
 
 
 // 移动
-void IElement::move(unsigned left, unsigned top)
+void IElement::move(int left, int top)
 {
     m_left = left;
     m_top = top;
@@ -40,49 +40,49 @@ void IElement::move(unsigned left, unsigned top)
 
 
 // 查询宽度
-unsigned IElement::getWidth()
+int IElement::getWidth()
 {
     return m_width;
 }
 
 
 // 查询高度
-unsigned IElement::getHeight()
+int IElement::getHeight()
 {
     return m_height;
 }
 
 
 // 设置垂直方向位置
-void IElement::setTop(unsigned top)
+void IElement::setTop(int top)
 {
     m_top = top;
 }
 
 
 // 查询垂直方向位置
-unsigned IElement::getTop()
+int IElement::getTop()
 {
     return m_top;
 }
 
 
 // 设置水平方向位置
-void IElement::setLeft(unsigned left)
+void IElement::setLeft(int left)
 {
     m_left = left;
 }
 
 
 // 查询水平方向位置
-unsigned IElement::getLeft()
+int IElement::getLeft()
 {
     return m_left;
 }
 
 
 // 设置边缘宽度
-void IElement::setMargin(unsigned margin)
+void IElement::setMargin(int margin)
 {
     m_margin = margin;
 
@@ -109,63 +109,63 @@ void IElement::setMargin(unsigned margin)
 
 
 // 设置上边缘
-void IElement::setTopMargin(unsigned margin)
+void IElement::setTopMargin(int margin)
 {
     m_topMargin = margin;
 }
 
 
 // 设置下边缘
-void IElement::setBottomMargin(unsigned margin)
+void IElement::setBottomMargin(int margin)
 {
     m_bottomMargin = margin;
 }
 
 
 // 设置左边缘
-void IElement::setLeftMargin(unsigned margin)
+void IElement::setLeftMargin(int margin)
 {
     m_left = margin;
 }
 
 
 // 设置右边缘
-void IElement::setRightMargin(unsigned margin)
+void IElement::setRightMargin(int margin)
 {
     m_rightMargin = margin;
 }
 
 
 // 查询边缘宽度
-unsigned IElement::getMargin()
+int IElement::getMargin()
 {
     return m_margin;
 }
 
 
 // 查询上边缘宽度
-unsigned IElement::getTopMargin()
+int IElement::getTopMargin()
 {
     return m_topMargin;
 }
 
 
 // 查询下边缘宽度
-unsigned IElement::getBottomMargin()
+int IElement::getBottomMargin()
 {
     return m_bottomMargin;
 }
 
 
 // 查询左边缘宽度
-unsigned IElement::getLeftMargin()
+int IElement::getLeftMargin()
 {
     return m_leftMargin;
 }
 
 
 // 查询右边缘宽度
-unsigned IElement::getRightMargin()
+int IElement::getRightMargin()
 {
     return m_rightMargin;
 }

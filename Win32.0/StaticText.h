@@ -12,7 +12,7 @@ public:
     // 对齐方式枚举类型
     enum Alignment{left, right, top, bottom, center};
 
-    StaticText(unsigned width, unsigned height, string text);
+    StaticText(int width, int height, string text);
     ~StaticText();
 
     void setText(string text);

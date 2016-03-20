@@ -2,7 +2,7 @@
 
 
 
-StaticText::StaticText(unsigned width, unsigned height, string text) 
+StaticText::StaticText(int width, int height, string text) 
     :IControl(width, height), m_text(text)
 {
 }

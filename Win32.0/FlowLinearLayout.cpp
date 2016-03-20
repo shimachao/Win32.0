@@ -2,7 +2,7 @@
 
 
 
-FlowLinearLayout::FlowLinearLayout(unsigned width, unsigned height, Orientation ori) 
+FlowLinearLayout::FlowLinearLayout(int width, int height, Orientation ori) 
     :ILayout(width, height), m_orientation(ori)
 {
 }
@@ -21,7 +21,7 @@ void FlowLinearLayout::add(IElement* pElement)
     if (m_orientation == horizontal)
     {
         // 设置子元素的y坐标，让其在垂直方向上居中
-        unsigned top = (m_height - pElement->getHeight()) / 2;
+        int top = (m_height - pElement->getHeight()) / 2;
         pElement->setTop(top);
         // 调整所有元素的x坐标，让它们在水平方向上均匀分布
         horRepositionX();
@@ -29,7 +29,7 @@ void FlowLinearLayout::add(IElement* pElement)
     else
     {
         // 设置子元素的x坐标，让其在水平方向上居中
-        unsigned left = (m_width - pElement->getWidth()) / 2;
+        int left = (m_width - pElement->getWidth()) / 2;
         pElement->setLeft(left);
         // 调整所有元素的y坐标，让它们在垂直方向上均匀分布
         verRepositionY();
@@ -41,7 +41,7 @@ void FlowLinearLayout::add(IElement* pElement)
 void FlowLinearLayout::horRepositionX()
 {
     // 计算元素之间在水平方向上的间隔距离
-    unsigned sumWidth = 0;
+    int sumWidth = 0;
     for each (const auto& var in m_childArray)
     {
         sumWidth += var->getWidth();
@@ -52,7 +52,7 @@ void FlowLinearLayout::horRepositionX()
         margin = 0;
     }
     // 设置元素的x坐标
-    unsigned left = m_leftBlank;
+    int left = m_leftBlank;
     for each (const auto& var in m_childArray)
     {
         var->setLeft(left);
@@ -65,7 +65,7 @@ void FlowLinearLayout::horRepositionX()
 void FlowLinearLayout::verRepositionY()
 {
     // 计算元素之间在垂直方向上的间隔距离
-    unsigned sumHeight = 0;
+    int sumHeight = 0;
     for each (const auto& var in m_childArray)
     {
         sumHeight += var->getHeight();
@@ -76,7 +76,7 @@ void FlowLinearLayout::verRepositionY()
         margin = 0;
     }
     // 设置元素的y坐标
-    unsigned top = m_topBlank;
+    int top = m_topBlank;
     for each (const auto& var in m_childArray)
     {
         var->setTop(top);
@@ -86,7 +86,7 @@ void FlowLinearLayout::verRepositionY()
 
 
 // 鼠标移动到元素范围内
-void FlowLinearLayout::mouseMoveIn(unsigned x, unsigned y)
+void FlowLinearLayout::mouseMoveIn(int x, int y)
 {
     for each (const auto& var in m_childArray)
     {

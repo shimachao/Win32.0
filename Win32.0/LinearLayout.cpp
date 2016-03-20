@@ -2,7 +2,7 @@
 
 
 
-LinearLayout::LinearLayout(unsigned width, unsigned height, Orientation orientation)
+LinearLayout::LinearLayout(int width, int height, Orientation orientation)
     :ILayout(width, height), m_orientation(orientation)
 {
 }
@@ -35,8 +35,8 @@ void LinearLayout::add(IElement *pElement)
 void LinearLayout::horAdd(IElement *pElment)
 {
     // 计算x坐标
-    static unsigned margin = 0; // 元素之间的水平边缘间隔
-    static unsigned left = m_leftBlank; // 开始摆放元素的起始x坐标
+    static int margin = 0; // 元素之间的水平边缘间隔
+    static int left = m_leftBlank; // 开始摆放元素的起始x坐标
 
     if (pElment->getLeftMargin() > margin)
     {
@@ -44,7 +44,7 @@ void LinearLayout::horAdd(IElement *pElment)
     }
 
     // 计算元素y坐标，让元素在垂直方向上居中
-    unsigned top = (m_height - pElment->getHeight()) / 2;
+    int top = (m_height - pElment->getHeight()) / 2;
     pElment->move(left + margin, top);
 
     //更新left和margin
@@ -57,8 +57,8 @@ void LinearLayout::horAdd(IElement *pElment)
 void LinearLayout::verAdd(IElement *pElment)
 {
     // 计算y坐标
-    static unsigned margin = 0; // 元素之间的垂直边缘间隔
-    static unsigned top = m_topBlank;   // 开始摆放元素的起始y坐标
+    static int margin = 0; // 元素之间的垂直边缘间隔
+    static int top = m_topBlank;   // 开始摆放元素的起始y坐标
 
     if (pElment->getTopMargin() > margin)
     {
@@ -66,7 +66,7 @@ void LinearLayout::verAdd(IElement *pElment)
     }
 
     // 计算x坐标，让元素在水平方向上居中
-    unsigned left = (m_width - pElment->getWidth()) / 2;
+    int left = (m_width - pElment->getWidth()) / 2;
     pElment->move(left, top + margin);
 
     // 跟新top和margin
@@ -92,8 +92,8 @@ void LinearLayout::resizeToFit()
 void LinearLayout::horResizeToFit()
 {
     // 调整宽度
-    unsigned margin = 0;
-    unsigned sumWidth = m_leftBlank + m_rightBlank;
+    int margin = 0;
+    int sumWidth = m_leftBlank + m_rightBlank;
     for each (const auto& var in m_childList)
     {
         if (var->getLeftMargin() > margin)
@@ -107,10 +107,10 @@ void LinearLayout::horResizeToFit()
 
     // 调整高度
     // 找出子元素中所需高度的最大值
-    unsigned height = 0;
+    int height = 0;
     for each (const auto& var in m_childList)
     {
-        unsigned h = var->getTopMargin() + var->getBottomMargin() + var->getHeight();
+        int h = var->getTopMargin() + var->getBottomMargin() + var->getHeight();
         if (h > height)
         {
             height = h;
@@ -121,7 +121,7 @@ void LinearLayout::horResizeToFit()
     // 调整子元素的y坐标，保持其在y方向上居中
     for each (const auto& var in m_childList)
     {
-        unsigned top = (m_height - var->getHeight()) / 2;
+        int top = (m_height - var->getHeight()) / 2;
         var->setTop(top);
     }
 }
@@ -131,8 +131,8 @@ void LinearLayout::horResizeToFit()
 void LinearLayout::verResizeToFit()
 {
     // 调整高度
-    unsigned sumHeight = m_topBlank + m_bottomBlank;
-    unsigned margin = 0;
+    int sumHeight = m_topBlank + m_bottomBlank;
+    int margin = 0;
 
     for each (const auto& var in m_childList)
     {
@@ -148,10 +148,10 @@ void LinearLayout::verResizeToFit()
 
     // 调整宽度
     // 找出子元素中所需宽度的最大值
-    unsigned width = 0;
+    int width = 0;
     for each (const auto& var in m_childList)
     {
-        unsigned w = var->getLeftMargin() + var->getWidth() + var->getRightMargin();
+        int w = var->getLeftMargin() + var->getWidth() + var->getRightMargin();
         if (w > width)
         {
             width = w;
@@ -162,14 +162,14 @@ void LinearLayout::verResizeToFit()
     // 调整子元素的x坐标，保持其在x方向上居中
     for each (const auto& var in m_childList)
     {
-        unsigned left = (m_width - var->getWidth()) / 2;
+        int left = (m_width - var->getWidth()) / 2;
         var->setLeft(left);
     }
 }
 
 
 // 鼠标移动到元素范围内
-void LinearLayout::mouseMoveIn(unsigned x, unsigned y)
+void LinearLayout::mouseMoveIn(int x, int y)
 {
     for each (const auto& var in m_childList)
     {
