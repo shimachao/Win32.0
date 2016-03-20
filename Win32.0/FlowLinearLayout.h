@@ -21,6 +21,8 @@ public:
     void add(IElement* pElement);
     // 鼠标移动到元素范围内
     void mouseMoveIn(int x, int y);
+    // 绘制
+    virtual void draw(Gdiplus::Graphics &g) override;
 
 private:
     // 方向为水平时调整所有子元素的x坐标

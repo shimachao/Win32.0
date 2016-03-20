@@ -22,6 +22,8 @@ public:
     void resizeToFit();
     // 鼠标移动到元素范围内
     void mouseMoveIn(int x, int y);
+    // 绘制
+    virtual void draw(Gdiplus::Graphics &g) override;
     
 private:
     // 布局方向为水平时的添加方法

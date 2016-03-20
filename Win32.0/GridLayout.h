@@ -17,6 +17,8 @@ public:
     void add(IElement *pElement, int row, int column);
     // 鼠标移动到元素范围内
     void mouseMoveIn(int x, int y);
+    // 绘制
+    virtual void draw(Graphics &g) override;
 
 private:
     // 设置子元素位置

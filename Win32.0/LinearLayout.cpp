@@ -180,3 +180,17 @@ void LinearLayout::mouseMoveIn(int x, int y)
         }
     }
 }
+
+
+// »æÖÆ
+void LinearLayout::draw(Gdiplus::Graphics &g)
+{
+    g.TranslateTransform(m_left, m_top);
+
+    for each (const auto& var in m_childList)
+    {
+        var->draw(g);
+    }
+
+    g.TranslateTransform(-m_left, -m_top);
+}

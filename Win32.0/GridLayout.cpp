@@ -98,3 +98,17 @@ void GridLayout::mouseMoveIn(int x, int y)
         }
     }
 }
+
+
+// »æÖÆ
+void GridLayout::draw(Graphics &g)
+{
+    g.TranslateTransform(m_left, m_top);
+
+    for each (const auto& var in m_childMap)
+    {
+        var.second->draw(g);
+    }
+
+    g.TranslateTransform(m_left, m_top);
+}

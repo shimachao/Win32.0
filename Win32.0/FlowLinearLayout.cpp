@@ -96,3 +96,17 @@ void FlowLinearLayout::mouseMoveIn(int x, int y)
         }
     }
 }
+
+
+// »æÖÆ
+void FlowLinearLayout::draw(Gdiplus::Graphics &g)
+{
+    g.TranslateTransform(m_left, m_top);
+
+    for each (const auto& var in m_childArray)
+    {
+        var->draw(g);
+    }
+
+    g.TranslateTransform(-m_left, -m_top);
+}
