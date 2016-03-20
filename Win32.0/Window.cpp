@@ -150,11 +150,16 @@ void Window::onPaint(HDC dc)
     SelectObject(hMemDC, hMemBitMap);
     // 根据内存DC创建GDI+绘制对象
     Gdiplus::Graphics graphics(hMemDC);
+
     // 清理背景
     Gdiplus::SolidBrush whiteBrush(Gdiplus::Color(255, 255, 255));
     graphics.FillRectangle(&whiteBrush, 0, 0, 720, 450);
-    // TODO:绘制控件
+
+    // 绘制控件
+    m_pLayout->draw(graphics);
+
     // 复制到目标DC
     BitBlt(dc, 0, 0, m_width, m_height, dc, 0, 0, SRCCOPY);
+
     DeleteDC(hMemDC);
 }
