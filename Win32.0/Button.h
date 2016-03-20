@@ -13,7 +13,7 @@ class Button :
     public StaticText
 {
 public:
-    Button(unsigned width, unsigned height, string text = "static text");
+    Button(int width, int height, TCHAR * text = L"Static Text");
     ~Button();
 
     // 连接事件和动作
@@ -33,6 +33,9 @@ public:
     void LMBDown();
     // 鼠标左键弹起（在控件捕获范围内）
     void LMBUp();
+
+    // 绘制
+    virtual void draw(Gdiplus::Graphics &g) override;
 
 private:
     enum ButtonState
