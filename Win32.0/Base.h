@@ -2,8 +2,6 @@
 #include <Windows.h>
 #include <gdiplus.h>
 
-extern Gdiplus::Pen blackPen;
-
 using Gdiplus::Graphics;
 using Gdiplus::Rect;
 using Gdiplus::RectF;
@@ -26,3 +24,8 @@ using Gdiplus::PrivateFontCollection;
 using Gdiplus::FontStyleRegular;
 using Gdiplus::UnitPixel;
 using Gdiplus::PenAlignmentInset;
+
+extern Pen blackPen;
+extern Gdiplus::Font font;
+extern SolidBrush solidBrush;
+extern StringFormat stringFormat;
