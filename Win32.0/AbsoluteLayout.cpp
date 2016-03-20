@@ -33,3 +33,17 @@ void AbsoluteLayout::mouseMoveIn(unsigned x, unsigned y)
         }
     }
 }
+
+
+// »æÖÆ
+void AbsoluteLayout::draw(Gdiplus::Graphics &g)
+{
+    g.TranslateTransform(m_left, m_top);
+
+    for each (const auto& var in m_childArray)
+    {
+        var->draw(g);
+    }
+
+    g.TranslateTransform(0 - m_left, 0 - m_top);
+}

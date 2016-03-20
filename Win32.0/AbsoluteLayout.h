@@ -16,6 +16,8 @@ public:
     void add(IElement *pElement, unsigned left, unsigned top);
     // 鼠标移动到元素范围内
     void mouseMoveIn(unsigned x, unsigned y);
+    // 绘制
+    virtual void draw(Gdiplus::Graphics &g) override;
 
 private:
     vector<IElement*>   m_childArray;
