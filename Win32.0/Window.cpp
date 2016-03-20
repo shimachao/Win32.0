@@ -54,6 +54,14 @@ bool Window::Initialize()
 }
 
 
+// 设置布局
+void Window::setLayout(ILayout *pLayout)
+{
+    m_pLayout = pLayout;
+    m_pLayout->setPos(0, 0, m_width, m_height);
+}
+
+
 void Window::Run()
 {
     // 显示窗口
