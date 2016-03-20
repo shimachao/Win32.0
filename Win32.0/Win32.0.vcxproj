@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AbsoluteLayout.h" />
+    <ClInclude Include="Base.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="FlowLinearLayout.h" />
     <ClInclude Include="Graph.h" />
