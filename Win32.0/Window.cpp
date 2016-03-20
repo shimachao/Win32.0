@@ -1,5 +1,6 @@
 #include "Window.h"
 #include "Win32Helper.h"
+#include <GdiPlus.h>
 
 
 Window::Window(int width, int height)
@@ -25,7 +26,7 @@ bool Window::Initialize()
     wcex.style = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc = Window::WindowProc;
     wcex.cbClsExtra = 0;
-    wcex.cbWndExtra = 0;
+    wcex.cbWndExtra = sizeof(LONG_PTR);
     wcex.hInstance = HINST_THISCOMPONENT;
     wcex.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
     wcex.lpszMenuName = NULL;
@@ -84,9 +85,30 @@ void Window::Run()
 
 LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    static Window *pWindow = nullptr;
+    PAINTSTRUCT ps;
+    HDC dc;
 
     switch (message)
     {
+    case WM_CREATE:
+    {
+        LPCREATESTRUCT pcs = (LPCREATESTRUCT)lParam;
+        pWindow = (Window *)pcs->lpCreateParams;
+        break;
+    }
+
+    case WM_PAINT:
+        if (pWindow != nullptr)
+        {
+            dc = BeginPaint(hWnd, &ps);
+
+            pWindow->onPaint(dc);
+
+            EndPaint(hWnd, &ps);
+        }
+        break;
+
     case WM_CLOSE:
         DestroyWindow(hWnd);
         break;
@@ -116,4 +138,23 @@ void Window::MoveToCenter()
     int top = (srcHeight - m_height) / 2;
 
     MoveWindow(m_hwnd, left, top, m_width, m_height, false);
+}
+
+
+// 绘制
+void Window::onPaint(HDC dc)
+{
+    // 创建内存兼容DC，准备双缓冲
+    HDC hMemDC = CreateCompatibleDC(dc);
+    HBITMAP hMemBitMap = CreateCompatibleBitmap(dc, m_width, m_height);
+    SelectObject(hMemDC, hMemBitMap);
+    // 根据内存DC创建GDI+绘制对象
+    Gdiplus::Graphics graphics(hMemDC);
+    // 清理背景
+    Gdiplus::SolidBrush whiteBrush(Gdiplus::Color(255, 255, 255));
+    graphics.FillRectangle(&whiteBrush, 0, 0, 720, 450);
+    // TODO:绘制控件
+    // 复制到目标DC
+    BitBlt(dc, 0, 0, m_width, m_height, dc, 0, 0, SRCCOPY);
+    DeleteDC(hMemDC);
 }

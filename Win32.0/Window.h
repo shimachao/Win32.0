@@ -25,6 +25,10 @@ public:
     void Run();
 
 private:
+    // 绘制
+    void onPaint(HDC dc);
+
+private:
     // 窗口过程函数
     static LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
     // 变量
