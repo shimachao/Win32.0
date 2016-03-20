@@ -2,7 +2,7 @@
 
 
 
-StaticText::StaticText(int width, int height, string text) 
+StaticText::StaticText(int width, int height, TCHAR *text)
     :IControl(width, height), m_text(text)
 {
 }
@@ -34,7 +34,7 @@ void StaticText::setTextVerticalAlignment(Alignment align)
 }
 
 
-void StaticText::setText(string text)
+void StaticText::setText(TCHAR *text)
 {
     m_text = text;
 }
