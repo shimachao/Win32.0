@@ -45,5 +45,5 @@ void AbsoluteLayout::draw(Gdiplus::Graphics &g)
         var->draw(g);
     }
 
-    g.TranslateTransform(0 - m_left, 0 - m_top);
+    g.TranslateTransform(-m_left, -m_top);
 }
