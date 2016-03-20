@@ -20,6 +20,8 @@ public:
     void setTextHorizontalAlignment(Alignment align);
     // 设置垂直方向上的对齐方式
     void setTextVerticalAlignment(Alignment align);
+    // 绘制
+    virtual void draw(Graphics &g) override;
 
 protected:
     TCHAR  *m_text = L"static text"; // 文本
