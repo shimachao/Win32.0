@@ -30,3 +30,30 @@ void IControl::mouseMoveIn(int x, int y)
 {
     // 空实习，供子类覆盖或继承
 }
+
+
+// 鼠标左键按下（在控件捕获范围内）
+void IControl::LMBDown()
+{
+    // do nothing
+}
+
+// 鼠标左键弹起（在控件捕获范围内）
+void IControl::LMBUp()
+{
+    // do nothing
+}
+
+
+// 获得焦点
+void IControl::getFocus()
+{
+    // do nothing
+}
+
+
+// 失去焦点
+void IControl::loseFocus()
+{
+    // do nothing
+}
