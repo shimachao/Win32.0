@@ -108,7 +108,7 @@ bool RadioButton::ifMouseIn(int x, int y)
             return false;
         }
     }
-    else if (m_textPos == left)
+    else
     {
         if (x >= (m_width - m_height) && x <= m_width && y >= 0 && y <= m_height)
         {
