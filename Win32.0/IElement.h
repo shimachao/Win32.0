@@ -8,21 +8,21 @@ public:
     ~IElement();
 
     // 设置位置和大小
-    virtual void setPos(int left, int top, int width, int height) = 0;
+    virtual void setPos(int left, int top, int width, int height);
     // 查询位置和大小
     void getPos(int &left, int &top, int &width, int &height);
     // 设置大小
-    virtual void setSize(int width, int height) = 0;
+    virtual void setPos(int left, int top, int width, int height);
     // 查询大小
     void getSize(int &width, int &height);
     // 移动
     void move(int left, int top);
     // 设置宽度
-    virtual void setWidth(int width) = 0;
+    virtual void setWidth(int width);
     // 查询宽度
     int getWidth();
     // 设置高度
-    virtual void setHeight(int height) = 0;
+    virtual void setHeight(int height);
     // 查询高度
     int getHeight();
     // 设置垂直方向位置
@@ -56,7 +56,7 @@ public:
     int getRightMargin();
 
     // 测试鼠标是否落在在元素的捕获范围内
-    virtual bool ifMouseIn(int x, int y) = 0;
+    virtual bool ifMouseIn(int x, int y);
 
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) = 0;

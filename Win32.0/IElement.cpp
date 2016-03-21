@@ -13,6 +13,16 @@ IElement::~IElement()
 }
 
 
+// 设置位置和大小
+void IElement::setPos(int left, int top, int width, int height)
+{
+    m_left = left;
+    m_top = top;
+    m_width = width;
+    m_height = height;
+}
+
+
 // 查询位置和大小
 void IElement::getPos(int &left, int &top, int &width, int &height)
 {
@@ -20,6 +30,14 @@ void IElement::getPos(int &left, int &top, int &width, int &height)
     top = m_top;
     width = m_width;
     height = m_height;
+}
+
+
+// 设置大小
+void IElement::setSize(int width, int height)
+{
+    m_width = width;
+    m_height = height;
 }
 
 
@@ -39,10 +57,24 @@ void IElement::move(int left, int top)
 }
 
 
+// 设置宽度
+void IElement::setWidth(int width)
+{
+    m_width = width;
+}
+
+
 // 查询宽度
 int IElement::getWidth()
 {
     return m_width;
+}
+
+
+// 设置高度
+void IElement::setHeight(int height)
+{
+    m_height = height;
 }
 
 
@@ -168,4 +200,19 @@ int IElement::getLeftMargin()
 int IElement::getRightMargin()
 {
     return m_rightMargin;
+}
+
+
+// 测试鼠标是否落在在元素的捕获范围内
+bool IElement::ifMouseIn(int x, int y)
+{
+    if (x >= m_left && x <= m_left + m_width
+        && y >= m_top && y <= m_top + m_height)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
