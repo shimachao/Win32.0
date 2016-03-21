@@ -153,13 +153,13 @@ void Window::onPaint(HDC dc)
 
     // 清理背景
     Gdiplus::SolidBrush whiteBrush(Gdiplus::Color(255, 255, 255));
-    graphics.FillRectangle(&whiteBrush, 0, 0, 720, 450);
+    graphics.FillRectangle(&whiteBrush, 0, 0, m_width, m_height);
 
     // 绘制控件
     m_pLayout->draw(graphics);
 
     // 复制到目标DC
-    BitBlt(dc, 0, 0, m_width, m_height, dc, 0, 0, SRCCOPY);
+    BitBlt(dc, 0, 0, m_width, m_height, hMemDC, 0, 0, SRCCOPY);
 
     DeleteDC(hMemDC);
 }
