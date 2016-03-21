@@ -12,7 +12,7 @@ public:
     // 查询位置和大小
     void getPos(int &left, int &top, int &width, int &height);
     // 设置大小
-    virtual void setPos(int left, int top, int width, int height);
+    virtual void setSize(int width, int height);
     // 查询大小
     void getSize(int &width, int &height);
     // 移动
