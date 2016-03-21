@@ -28,6 +28,6 @@ public:
     // 鼠标移动到元素范围内
     virtual void mouseMoveIn(int x, int y);
     // 鼠标移出元素范围外
-    virtual void mouseMoveOut() = 0;
+    virtual void mouseMoveOut();
 };
 
