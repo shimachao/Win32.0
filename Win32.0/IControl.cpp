@@ -32,6 +32,13 @@ void IControl::mouseMoveIn(int x, int y)
 }
 
 
+// 鼠标移出元素范围外
+void IControl::mouseMoveOut()
+{
+    // do nothing
+}
+
+
 // 鼠标左键按下（在控件捕获范围内）
 void IControl::LMBDown()
 {
