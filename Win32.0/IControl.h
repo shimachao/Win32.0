@@ -25,8 +25,6 @@ public:
 
     // 测试鼠标是否落在在元素的捕获范围内
     virtual bool ifMouseIn(int x, int y);
-    // 鼠标移动到元素范围内
-    virtual void mouseMoveIn(int x, int y);
     // 鼠标移出元素范围外
     virtual void mouseMoveOut();
 };

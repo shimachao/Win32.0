@@ -216,3 +216,10 @@ bool IElement::ifMouseIn(int x, int y)
         return false;
     }
 }
+
+
+// 鼠标移动到元素范围内
+void IElement::mouseMoveIn(int x, int y)
+{
+    // do nothing
+}
