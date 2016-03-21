@@ -43,6 +43,17 @@ void StaticText::setText(TCHAR *text)
 // 绘制
 void StaticText::draw(Graphics &g)
 {
+    Pen blackPen(Gdiplus::Color::Gray, 1.0f);
+    // 设置字体属性
+    blackPen.SetAlignment(Gdiplus::PenAlignmentInset);
+
+    FontFamily fontFamily(L"Consolas");
+    Gdiplus::Font font(&fontFamily, 16, FontStyleRegular, UnitPixel);
+    SolidBrush solidBrush(Color(0, 0, 0));
+    StringFormat stringFormat;
+    // 文字属性
+    stringFormat.SetAlignment(StringAlignmentCenter);
+    stringFormat.SetLineAlignment(StringAlignmentCenter);
     // 绘制边框
     g.DrawRectangle(&blackPen, (int)m_left, m_top, m_width, m_height);
 

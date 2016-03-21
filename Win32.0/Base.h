@@ -24,8 +24,3 @@ using Gdiplus::PrivateFontCollection;
 using Gdiplus::FontStyleRegular;
 using Gdiplus::UnitPixel;
 using Gdiplus::PenAlignmentInset;
-
-extern Pen blackPen;
-extern Gdiplus::Font font;
-extern SolidBrush solidBrush;
-extern StringFormat stringFormat;
