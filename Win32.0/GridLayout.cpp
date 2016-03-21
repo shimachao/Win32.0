@@ -112,3 +112,18 @@ void GridLayout::draw(Graphics &g)
 
     g.TranslateTransform(m_left, m_top);
 }
+
+
+// »÷ÖÐ²âÊÔ
+IElement* GridLayout::hitTest(int x, int y)
+{
+    for each (const auto& var in m_childMap)
+    {
+        if (var.second->hitTest(x - m_left, y - m_top))
+        {
+            return var.second;
+        }
+    }
+
+    return nullptr;
+}

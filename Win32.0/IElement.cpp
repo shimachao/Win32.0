@@ -223,3 +223,18 @@ void IElement::mouseMoveIn(int x, int y)
 {
     // do nothing
 }
+
+
+// »÷ÖÐ²âÊÔ
+IElement* IElement::hitTest(int x, int y)
+{
+    if (x >= m_left && x <= m_left + m_width
+        && y >= m_top && y <= m_top + m_height)
+    {
+        return this;
+    }
+    else
+    {
+        return nullptr;
+    }
+}

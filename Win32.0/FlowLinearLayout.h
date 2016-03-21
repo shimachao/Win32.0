@@ -23,6 +23,8 @@ public:
     void mouseMoveIn(int x, int y);
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) override;
+    // 击中测试
+    virtual IElement* hitTest(int x, int y) override;
 
 private:
     // 方向为水平时调整所有子元素的x坐标

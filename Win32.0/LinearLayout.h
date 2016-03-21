@@ -24,6 +24,8 @@ public:
     void mouseMoveIn(int x, int y);
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) override;
+    // 击中测试
+    virtual IElement* hitTest(int x, int y) override;
     
 private:
     // 布局方向为水平时的添加方法

@@ -18,6 +18,8 @@ public:
     void mouseMoveIn(int x, int y);
     // »æÖÆ
     virtual void draw(Gdiplus::Graphics &g) override;
+    // »÷ÖĞ²âÊÔ
+    virtual IElement* hitTest(int x, int y) override;
 
 private:
     vector<IElement*>   m_childArray;

@@ -47,3 +47,19 @@ void AbsoluteLayout::draw(Gdiplus::Graphics &g)
 
     g.TranslateTransform(-m_left, -m_top);
 }
+
+
+// »÷ÖĞ²âÊÔ
+IElement* AbsoluteLayout::hitTest(int x, int y)
+{
+    for each (const auto& var in m_childArray)
+    {
+        if (var->hitTest(x - m_left, y - m_top))
+        {
+            return var;
+        }
+    }
+
+    return nullptr;
+}
+
