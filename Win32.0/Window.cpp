@@ -1,6 +1,7 @@
 #include "Window.h"
 #include "Win32Helper.h"
 #include <GdiPlus.h>
+#include <Windowsx.h>
 
 
 Window::Window(int width, int height)
@@ -109,6 +110,27 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         }
         break;
 
+
+    case WM_NCHITTEST:
+        if (pWindow != nullptr)
+        {
+            int xPos = GET_X_LPARAM(lParam);
+            int yPos = GET_Y_LPARAM(lParam);
+            POINT p;
+            p.x = xPos;
+            p.y = yPos;
+            ::ScreenToClient(hWnd, &p);
+            if (pWindow->ifMouseOnControl(p.x, p.y))
+            {
+                return HTCLIENT;
+            }
+            else
+            {
+                return HTCAPTION;
+            }
+        }
+        return HTCAPTION;
+
     case WM_CLOSE:
         DestroyWindow(hWnd);
         break;
@@ -162,4 +184,18 @@ void Window::onPaint(HDC dc)
     BitBlt(dc, 0, 0, m_width, m_height, hMemDC, 0, 0, SRCCOPY);
 
     DeleteDC(hMemDC);
+}
+
+
+// 响应鼠标左键按下消息
+void Window::onLButtonDown(int x, int y)
+{
+    m_pLayout->ifMouseIn(x, y);
+}
+
+
+// 判断鼠标位置是否在某个控件上
+bool Window::ifMouseOnControl(int x, int y)
+{
+    return m_pLayout->hitTest(x, y) != nullptr;
 }
