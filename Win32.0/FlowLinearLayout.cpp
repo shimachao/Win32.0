@@ -46,17 +46,17 @@ void FlowLinearLayout::horRepositionX()
     {
         sumWidth += var->getWidth();
     }
-    int margin = m_width - m_leftBlank - m_rightBlank - sumWidth;
+    int margin = (m_width - m_leftBlank - m_rightBlank - sumWidth) / (m_childArray.size() + 1);
     if (margin < 0)
     {
         margin = 0;
     }
     // 设置元素的x坐标
-    int left = m_leftBlank;
+    int left = m_leftBlank + margin;
     for each (const auto& var in m_childArray)
     {
         var->setLeft(left);
-        left += margin;
+        left += var->getWidth() + margin;
     }
 }
 
@@ -70,17 +70,17 @@ void FlowLinearLayout::verRepositionY()
     {
         sumHeight += var->getHeight();
     }
-    int margin = m_height - m_topBlank - m_bottomBlank - sumHeight;
+    int margin = (m_height - m_topBlank - m_bottomBlank - sumHeight) / (m_childArray.size() + 1);
     if (margin < 0)
     {
         margin = 0;
     }
     // 设置元素的y坐标
-    int top = m_topBlank;
+    int top = m_topBlank + margin;
     for each (const auto& var in m_childArray)
     {
         var->setTop(top);
-        top += margin;
+        top += var->getHeight() + margin;
     }
 }
 
