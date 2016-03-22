@@ -220,6 +220,7 @@ void Window::onPaint(HDC dc)
 void Window::onLButtonDown(int x, int y)
 {
     auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+
     if (var != m_pControlGotFocus)
     {
         if (var != nullptr)
@@ -249,6 +250,7 @@ bool Window::ifMouseOnControl(int x, int y)
 void Window::onMouseMove(int x, int y)
 {
     auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+
     if (var != m_pControlCaptureMouse)
     {
         if (var != nullptr)
