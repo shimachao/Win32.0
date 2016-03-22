@@ -20,9 +20,9 @@ public:
     void connect(Event event, function<void()> action);
 
     // 获得焦点
-    void getFocus();
+    virtual void getFocus() override;
     // 失去焦点
-    void loseFocus();
+    virtual void loseFocus() override;
 
     // 鼠标移动到控件上
     void mouseMoveIn();
@@ -30,9 +30,9 @@ public:
     virtual void mouseMoveOut() override;
 
     // 鼠标左键按下（在控件捕获范围内）
-    void LMBDown();
+    virtual void LMBDown() override;
     // 鼠标左键弹起（在控件捕获范围内）
-    void LMBUp();
+    virtual void LMBUp() override;
 
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) override;
