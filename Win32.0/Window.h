@@ -45,5 +45,6 @@ private:
     ILayout *m_pLayout = nullptr; // 窗口布局
 
     IControl* m_pControlCaptureMouse = nullptr; // 鼠标所在位置的控件
+    IControl* m_pControlGotFocus = nullptr; // 获得焦点的控件
 };
 

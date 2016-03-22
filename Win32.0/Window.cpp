@@ -140,6 +140,12 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         return HTCAPTION;
 
     case WM_LBUTTONDOWN:
+        if (pWindow != nullptr)
+        {
+            int xPos = GET_X_LPARAM(lParam);
+            int yPos = GET_Y_LPARAM(lParam);
+            pWindow->onLButtonDown(xPos, yPos);
+        }
         OutputDebugString(L"WM_LBUTTONDOWN\n");
         break;
 
@@ -213,7 +219,22 @@ void Window::onPaint(HDC dc)
 // 响应鼠标左键按下消息
 void Window::onLButtonDown(int x, int y)
 {
-    m_pLayout->ifMouseIn(x, y);
+    auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+    if (var != m_pControlGotFocus)
+    {
+        if (var != nullptr)
+        {
+            var->getFocus();
+            var->LMBDown();
+        }
+
+        if (m_pControlGotFocus != nullptr)
+        {
+            m_pControlGotFocus->loseFocus();
+        }
+
+        m_pControlGotFocus = var;
+    }
 }
 
 
