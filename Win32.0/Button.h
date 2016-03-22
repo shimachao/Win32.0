@@ -27,7 +27,7 @@ public:
     // 鼠标移动到控件上
     void mouseMoveIn();
     // 鼠标移出控件
-    void mouseMoveOut();
+    virtual void mouseMoveOut() override;
 
     // 鼠标左键按下（在控件捕获范围内）
     void LMBDown();
