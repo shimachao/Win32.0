@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include "ILayout.h"
+#include "IControl.h"
 
 #ifndef HINST_THISCOMPONENT
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
@@ -31,6 +32,8 @@ private:
     void onLButtonDown(int x, int y);
     // 判断鼠标位置是否在某个控件上
     bool ifMouseOnControl(int x, int y);
+    // 对鼠标移到消息的响应
+    void onMouseMove(int x, int y);
 
 private:
     // 窗口过程函数
@@ -40,5 +43,7 @@ private:
     int     m_width;    // 窗口宽度，单位为像素
     int     m_height;   // 窗口高度，单位为像素
     ILayout *m_pLayout = nullptr; // 窗口布局
+
+    IControl* m_pControlCaptureMouse = nullptr; // 鼠标所在位置的控件
 };
 

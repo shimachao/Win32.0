@@ -110,6 +110,14 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         }
         break;
 
+    case WM_MOUSEMOVE:
+        if (pWindow != nullptr)
+        {
+            int xPos = GET_X_LPARAM(lParam);
+            int yPos = GET_Y_LPARAM(lParam);
+            pWindow->onMouseMove(xPos, yPos);
+        }
+        break;
 
     case WM_NCHITTEST:
         if (pWindow != nullptr)
@@ -198,4 +206,25 @@ void Window::onLButtonDown(int x, int y)
 bool Window::ifMouseOnControl(int x, int y)
 {
     return m_pLayout->hitTest(x, y) != nullptr;
+}
+
+
+// 对鼠标移到消息的响应
+void Window::onMouseMove(int x, int y)
+{
+    auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+    if (var != m_pControlCaptureMouse)
+    {
+        if (var != nullptr)
+        {
+            var->mouseMoveIn();
+        }
+
+        if (m_pControlCaptureMouse != nullptr)
+        {
+            m_pControlCaptureMouse->mouseMoveOut();
+        }
+
+        m_pControlCaptureMouse = var;
+    }
 }
