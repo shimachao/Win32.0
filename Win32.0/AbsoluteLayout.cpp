@@ -52,14 +52,22 @@ void AbsoluteLayout::draw(Gdiplus::Graphics &g)
 // »÷ÖÐ²âÊÔ
 IElement* AbsoluteLayout::hitTest(int x, int y)
 {
-    for each (const auto& var in m_childArray)
+    if (x >= m_left && x <= m_left + m_width
+        && y >= m_top && y <= m_top + m_height)
     {
-        if (var->hitTest(x - m_left, y - m_top))
+        IElement* p = nullptr;
+        for each (const auto& var in m_childArray)
         {
-            return var;
+            if ((p = var->hitTest(x - m_left, y - m_top)) != nullptr)
+            {
+                break;
+            }
         }
+        return p;
     }
-
-    return nullptr;
+    else
+    {
+        return nullptr;
+    }
 }
 
