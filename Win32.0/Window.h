@@ -28,12 +28,14 @@ public:
 private:
     // 绘制
     void onPaint(HDC dc);
-    // 响应鼠标左键按下消息
-    void onLButtonDown(int x, int y);
     // 判断鼠标位置是否在某个控件上
     bool ifMouseOnControl(int x, int y);
     // 对鼠标移到消息的响应
     void onMouseMove(int x, int y);
+    // 响应鼠标左键按下消息
+    void onLButtonDown(int x, int y);
+    // 响应鼠标左键弹起消息
+    void onLButtonUp(int x, int y);
 
 private:
     // 窗口过程函数

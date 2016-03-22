@@ -150,6 +150,12 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         break;
 
     case WM_LBUTTONUP:
+        if (pWindow != nullptr)
+        {
+            int xPos = GET_X_LPARAM(lParam);
+            int yPos = GET_Y_LPARAM(lParam);
+            pWindow->onLButtonUp(xPos, yPos);
+        }
         OutputDebugString(L"WM_LBUTTONUP\n");
         break;
 
@@ -264,5 +270,19 @@ void Window::onMouseMove(int x, int y)
         }
 
         m_pControlCaptureMouse = var;
+    }
+}
+
+
+// 响应鼠标左键弹起消息
+void Window::onLButtonUp(int x, int y)
+{
+    // 判断鼠标弹起时，鼠标位置是否在一个控件上
+    auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+
+    // 如果在
+    if (var != nullptr && var == m_pControlGotFocus)
+    {
+        var->LMBUp();
     }
 }
