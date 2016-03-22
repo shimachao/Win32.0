@@ -119,32 +119,39 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         }
         break;
 
-    case WM_NCHITTEST:
-        if (pWindow != nullptr)
-        {
-            int xPos = GET_X_LPARAM(lParam);
-            int yPos = GET_Y_LPARAM(lParam);
-            POINT p;
-            p.x = xPos;
-            p.y = yPos;
-            ::ScreenToClient(hWnd, &p);
-            if (pWindow->ifMouseOnControl(p.x, p.y))
+        /*case WM_NCHITTEST:
+            if (pWindow != nullptr)
             {
-                return HTCLIENT;
+                int xPos = GET_X_LPARAM(lParam);
+                int yPos = GET_Y_LPARAM(lParam);
+                POINT p;
+                p.x = xPos;
+                p.y = yPos;
+                ::ScreenToClient(hWnd, &p);
+                if (pWindow->ifMouseOnControl(p.x, p.y))
+                {
+                    return HTCLIENT;
+                }
+                else
+                {
+                    return HTCAPTION;
+                }
             }
-            else
-            {
-                return HTCAPTION;
-            }
-        }
-        return HTCAPTION;
+            return HTCAPTION;*/
 
     case WM_LBUTTONDOWN:
         if (pWindow != nullptr)
         {
             int xPos = GET_X_LPARAM(lParam);
             int yPos = GET_Y_LPARAM(lParam);
-            pWindow->onLButtonDown(xPos, yPos);
+            if (pWindow->ifMouseOnControl(xPos, yPos))
+            {
+                pWindow->onLButtonDown(xPos, yPos);
+            }
+            else
+            {
+                SendMessage(hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
         break;
 
@@ -230,20 +237,22 @@ void Window::onMouseMove(int x, int y)
 {
     auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
 
-    if (var != m_pControlCaptureMouse)
+    if (var == m_pControlCaptureMouse)
     {
-        if (var != nullptr)
-        {
-            var->mouseMoveIn();
-        }
-
-        if (m_pControlCaptureMouse != nullptr)
-        {
-            m_pControlCaptureMouse->mouseMoveOut();
-        }
-
-        m_pControlCaptureMouse = var;
+        return;
     }
+
+    if (m_pControlCaptureMouse != nullptr)
+    {
+        m_pControlCaptureMouse->mouseMoveOut();
+    }
+
+    if (var != nullptr)
+    {
+        var->mouseMoveIn();
+    }
+
+    m_pControlCaptureMouse = var;
 }
 
 
