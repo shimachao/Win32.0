@@ -46,7 +46,7 @@ private:
 private:
     bool m_ifGotFocus = false;  // 是否拥有焦点
     bool m_ifMouseIn = false;   // 鼠标是否在控件内
-    ButtonState m_state;    // 鼠标的状态，被按下或正常
+    ButtonState m_state = Normal;    // 鼠标的状态，被按下或正常
     map<Event, function<void()>> m_eventActionMap; // 事件和动作之间的映射
 };
 
