@@ -16,10 +16,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     StaticText staticText(100, 50, L"静态文本框");
     flowLayout.add(&staticText);
 
-    Button button(100, 50, L"按钮1");
-    flowLayout.add(&button);
+    Button button1(100, 50, L"按钮1");
+    button1.connect(clicked, []() {OutputDebugString(L"button1 clicked!\n"); });
+    flowLayout.add(&button1);
 
     Button button2(100, 50, L"按钮2");
+    button2.connect(clicked, []() {OutputDebugString(L"button2 clicked!\n"); });
     flowLayout.add(&button2);
 
     AbsoluteLayout absLayout(600, 400);
