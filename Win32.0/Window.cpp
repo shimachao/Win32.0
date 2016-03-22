@@ -146,7 +146,6 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
             int yPos = GET_Y_LPARAM(lParam);
             pWindow->onLButtonDown(xPos, yPos);
         }
-        OutputDebugString(L"WM_LBUTTONDOWN\n");
         break;
 
     case WM_LBUTTONUP:
@@ -156,15 +155,12 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
             int yPos = GET_Y_LPARAM(lParam);
             pWindow->onLButtonUp(xPos, yPos);
         }
-        OutputDebugString(L"WM_LBUTTONUP\n");
         break;
 
     case WM_NCLBUTTONDOWN:
-        OutputDebugString(L"WM_NCLBUTTONDOWN\n");
         break;
 
     case WM_NCLBUTTONUP:
-        OutputDebugString(L"WM_NCLBUTTONUP\n");
         break;
 
     case WM_CLOSE:
@@ -222,29 +218,6 @@ void Window::onPaint(HDC dc)
 }
 
 
-// 响应鼠标左键按下消息
-void Window::onLButtonDown(int x, int y)
-{
-    auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
-
-    if (var != m_pControlGotFocus)
-    {
-        if (var != nullptr)
-        {
-            var->getFocus();
-            var->LMBDown();
-        }
-
-        if (m_pControlGotFocus != nullptr)
-        {
-            m_pControlGotFocus->loseFocus();
-        }
-
-        m_pControlGotFocus = var;
-    }
-}
-
-
 // 判断鼠标位置是否在某个控件上
 bool Window::ifMouseOnControl(int x, int y)
 {
@@ -270,6 +243,33 @@ void Window::onMouseMove(int x, int y)
         }
 
         m_pControlCaptureMouse = var;
+    }
+}
+
+
+// 响应鼠标左键按下消息
+void Window::onLButtonDown(int x, int y)
+{
+    auto var = dynamic_cast<IControl*>(m_pLayout->hitTest(x, y));
+
+    if (var != nullptr)
+    {
+        var->LMBDown();
+    }
+    // 如果是新的控件，则转换焦点
+    if (var != m_pControlGotFocus)
+    {
+        if (var != nullptr)
+        {
+            var->getFocus();
+        }
+
+        if (m_pControlGotFocus != nullptr)
+        {
+            m_pControlGotFocus->loseFocus();
+        }
+
+        m_pControlGotFocus = var;
     }
 }
 
