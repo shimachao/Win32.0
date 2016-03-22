@@ -139,6 +139,22 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         }
         return HTCAPTION;
 
+    case WM_LBUTTONDOWN:
+        OutputDebugString(L"WM_LBUTTONDOWN\n");
+        break;
+
+    case WM_LBUTTONUP:
+        OutputDebugString(L"WM_LBUTTONUP\n");
+        break;
+
+    case WM_NCLBUTTONDOWN:
+        OutputDebugString(L"WM_NCLBUTTONDOWN\n");
+        break;
+
+    case WM_NCLBUTTONUP:
+        OutputDebugString(L"WM_NCLBUTTONUP\n");
+        break;
+
     case WM_CLOSE:
         DestroyWindow(hWnd);
         break;
@@ -151,11 +167,10 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
         PostQuitMessage(0);
         break;
 
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
+   
     }
 
-    return 0;
+    return DefWindowProc(hWnd, message, wParam, lParam);;
 }
 
 
