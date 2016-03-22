@@ -169,17 +169,17 @@ void LinearLayout::verResizeToFit()
 
 
 // 鼠标移动到元素范围内
-void LinearLayout::mouseMoveIn(int x, int y)
-{
-    for each (const auto& var in m_childList)
-    {
-        if (var->ifMouseIn(x - m_left, y - m_top))
-        {
-            var->mouseMoveIn(x - m_left, y - m_top);
-            break;
-        }
-    }
-}
+//void LinearLayout::mouseMoveIn(int x, int y)
+//{
+//    for each (const auto& var in m_childList)
+//    {
+//        if (var->ifMouseIn(x - m_left, y - m_top))
+//        {
+//            var->mouseMoveIn(x - m_left, y - m_top);
+//            break;
+//        }
+//    }
+//}
 
 
 // 绘制

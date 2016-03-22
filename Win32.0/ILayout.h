@@ -19,7 +19,7 @@ public:
     // 设置底部留白
     void setBottomBlank(int bottomBlank);
     // 测试鼠标是否落在在元素的捕获范围内
-    bool ifMouseIn(int x, int y);
+//    bool ifMouseIn(int x, int y);
 
     // 鼠标移动到元素范围内
     virtual void mouseMoveIn(int x, int y);

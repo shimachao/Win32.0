@@ -70,18 +70,18 @@ void ILayout::setBottomBlank(int bottomBlank)
 
 
 // 测试鼠标是否落在在元素的捕获范围内
-bool ILayout::ifMouseIn(int x, int y)
-{
-    if (x >= m_left && x <= m_left + m_width
-        && y >= m_top && y <= m_top + m_height)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
+//bool ILayout::ifMouseIn(int x, int y)
+//{
+//    if (x >= m_left && x <= m_left + m_width
+//        && y >= m_top && y <= m_top + m_height)
+//    {
+//        return true;
+//    }
+//    else
+//    {
+//        return false;
+//    }
+//}
 
 
 // 鼠标移动到元素范围内

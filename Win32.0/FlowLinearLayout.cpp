@@ -86,16 +86,16 @@ void FlowLinearLayout::verRepositionY()
 
 
 // 鼠标移动到元素范围内
-void FlowLinearLayout::mouseMoveIn(int x, int y)
-{
-    for each (const auto& var in m_childArray)
-    {
-        if (var->ifMouseIn(x - m_left, y - m_top))
-        {
-            var->mouseMoveIn(x - m_left, y - m_top);
-        }
-    }
-}
+//void FlowLinearLayout::mouseMoveIn(int x, int y)
+//{
+//    for each (const auto& var in m_childArray)
+//    {
+//        if (var->ifMouseIn(x - m_left, y - m_top))
+//        {
+//            var->mouseMoveIn(x - m_left, y - m_top);
+//        }
+//    }
+//}
 
 
 // 绘制

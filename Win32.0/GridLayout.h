@@ -16,7 +16,7 @@ public:
     // 在具体的某行某列添加子元素
     void add(IElement *pElement, int row, int column);
     // 鼠标移动到元素范围内
-    void mouseMoveIn(int x, int y);
+//    void mouseMoveIn(int x, int y);
     // 绘制
     virtual void draw(Graphics &g) override;
     // 击中测试

@@ -218,13 +218,6 @@ bool IElement::ifMouseIn(int x, int y)
 }
 
 
-// 鼠标移动到元素范围内
-void IElement::mouseMoveIn(int x, int y)
-{
-    // do nothing
-}
-
-
 // 击中测试
 IElement* IElement::hitTest(int x, int y)
 {

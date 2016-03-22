@@ -87,17 +87,17 @@ void GridLayout::setPos(IElement *pElement, int row, int column)
 
 
 // 鼠标移动到元素范围内
-void GridLayout::mouseMoveIn(int x, int y)
-{
-    for each (const auto& var in m_childMap)
-    {
-        if (var.second->ifMouseIn(x - m_left, y - m_top))
-        {
-            var.second->mouseMoveIn(x - m_left, y - m_top);
-            break;
-        }
-    }
-}
+//void GridLayout::mouseMoveIn(int x, int y)
+//{
+//    for each (const auto& var in m_childMap)
+//    {
+//        if (var.second->ifMouseIn(x - m_left, y - m_top))
+//        {
+//            var.second->mouseMoveIn(x - m_left, y - m_top);
+//            break;
+//        }
+//    }
+//}
 
 
 // 绘制

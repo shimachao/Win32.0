@@ -25,7 +25,14 @@ bool IControl::ifMouseIn(int x, int y)
 }
 
 
-// 鼠标移出元素范围外
+// 鼠标移到控件上
+void IControl::mouseMoveIn()
+{
+    // do nothing
+}
+
+
+// 鼠标移到控件外
 void IControl::mouseMoveOut()
 {
     // do nothing

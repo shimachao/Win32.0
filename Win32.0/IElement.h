@@ -57,8 +57,6 @@ public:
 
     // 测试鼠标是否落在在元素的捕获范围内
     virtual bool ifMouseIn(int x, int y);
-    // 鼠标移动到元素范围内
-    virtual void mouseMoveIn(int x, int y);
     // 击中测试
     virtual IElement* hitTest(int x, int y);
 
