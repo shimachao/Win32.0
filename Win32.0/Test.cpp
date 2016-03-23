@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     FlowLinearLayout flowLayout(600, 100);
     LinearLayout linearLayout(600, 100);
-    GridLayout girdLayout(600, 200, 2, 2);
+    GridLayout girdLayout(600, 200, 2, 3);
 
     Button button1(100, 50, L"button1");
     Button button2(100, 50, L"button2");
@@ -36,12 +36,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     Button button5(100, 50, L"button5");
     Button button6(100, 50, L"button6");
     StaticText staticText3(100, 50, L"staticText3");
-    RadioButton radioButton(100, 50, L"Radio Button");
+    RadioButton radioButton1(100, 50, L"Radio Button 1");
+    RadioButton radioButton2(100, 50, L"Radio Button 2");
+    radioButton2.setTextPos(RadioButton::left);
+    RadioButton radioButton3(100, 50, L"Radio Button 3");
 
     girdLayout.add(&button5);
     girdLayout.add(&button6);
     girdLayout.add(&staticText3);
-    girdLayout.add(&radioButton);
+    girdLayout.add(&radioButton1);
+    girdLayout.add(&radioButton2);
+    girdLayout.add(&radioButton3);
 
     AbsoluteLayout absoluteLayout(600, 400);
     absoluteLayout.add(&flowLayout, 0, 0);
