@@ -36,7 +36,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     Button button5(100, 50, L"button5");
     Button button6(100, 50, L"button6");
     StaticText staticText3(100, 50, L"staticText3");
-    RadioButton radioButton(100, 50, L"radio");
+    RadioButton radioButton(100, 50, L"Radio Button");
 
     girdLayout.add(&button5);
     girdLayout.add(&button6);

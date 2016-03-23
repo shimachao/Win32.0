@@ -264,6 +264,7 @@ void Window::onLButtonDown(int x, int y)
     if (var != nullptr)
     {
         var->LMBDown();
+        InvalidateRect(m_hwnd, NULL, false);
     }
     // 如果是新的控件，则转换焦点
     if (var != m_pControlGotFocus)
@@ -271,15 +272,18 @@ void Window::onLButtonDown(int x, int y)
         if (var != nullptr)
         {
             var->getFocus();
+            InvalidateRect(m_hwnd, NULL, false);
         }
 
         if (m_pControlGotFocus != nullptr)
         {
             m_pControlGotFocus->loseFocus();
+            InvalidateRect(m_hwnd, NULL, false);
         }
 
         m_pControlGotFocus = var;
     }
+    //UpdateWindow(m_hwnd);
 }
 
 
@@ -293,5 +297,7 @@ void Window::onLButtonUp(int x, int y)
     if (var != nullptr && var == m_pControlGotFocus)
     {
         var->LMBUp();
+        InvalidateRect(m_hwnd, NULL, false);
     }
+    SendMessage(m_hwnd, WM_PAINT, NULL, NULL);
 }
