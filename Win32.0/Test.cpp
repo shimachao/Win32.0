@@ -5,6 +5,7 @@
 #include "GridLayout.h"
 #include "StaticText.h"
 #include "Button.h"
+#include "RadioButton.h"
 #include "Graph.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
@@ -35,12 +36,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     Button button5(100, 50, L"button5");
     Button button6(100, 50, L"button6");
     StaticText staticText3(100, 50, L"staticText3");
-    StaticText staticText4(100, 50, L"staticText4");
+    RadioButton radioButton(100, 50, L"radio");
 
     girdLayout.add(&button5);
     girdLayout.add(&button6);
     girdLayout.add(&staticText3);
-    girdLayout.add(&staticText4);
+    girdLayout.add(&radioButton);
 
     AbsoluteLayout absoluteLayout(600, 400);
     absoluteLayout.add(&flowLayout, 0, 0);

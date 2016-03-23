@@ -18,7 +18,7 @@ public:
         left, right
     };
 
-    RadioButton(int width, int height, string text);
+    RadioButton(int width, int height, TCHAR* text = L"radio button");
     ~RadioButton();
 
     // 连接事件和动作
@@ -46,9 +46,13 @@ public:
 
     // 测试鼠标是否落在在元素的捕获范围内
     bool ifMouseIn(int x, int y);
+    // 击中测试
+    virtual IElement* hitTest(int x, int y) override;
+    // 绘制
+    virtual void draw(Gdiplus::Graphics &g) override;
 
 private:
-    string m_text = "radio button"; // 文本
+    TCHAR* m_text; // 文本
     TextPosition m_textPos = right;  // 文本位置，默认在右边
     bool m_ifMouseIn = false;   // 鼠标是否在控件内
     bool m_ifGotFocus = false;  // 是否获得焦点
