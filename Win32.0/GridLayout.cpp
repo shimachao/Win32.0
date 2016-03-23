@@ -110,7 +110,7 @@ void GridLayout::draw(Graphics &g)
         var.second->draw(g);
     }
 
-    g.TranslateTransform(m_left, m_top);
+    g.TranslateTransform(-m_left, -m_top);
 }
 
 
