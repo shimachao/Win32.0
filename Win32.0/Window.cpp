@@ -210,6 +210,8 @@ void Window::onPaint(HDC dc)
     SelectObject(hMemDC, hMemBitMap);
     // 根据内存DC创建GDI+绘制对象
     Gdiplus::Graphics graphics(hMemDC);
+    // 设置反走样
+    graphics.SetSmoothingMode(Gdiplus::SmoothingModeHighQuality);
 
     // 清理背景
     Gdiplus::SolidBrush whiteBrush(Gdiplus::Color(255, 255, 255));
