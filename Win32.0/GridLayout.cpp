@@ -29,7 +29,7 @@ void GridLayout::add(IElement *pElement)
 {
     // 找到一个空闲的网格
     int i = 0;
-    while (!m_pMark[i])
+    while (m_pMark[i])
     {
         i++;
     }
