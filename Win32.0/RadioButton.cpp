@@ -127,16 +127,16 @@ IElement* RadioButton::hitTest(int x, int y)
 {
     if (m_textPos == left)
     {
-        if (x >= m_left + m_width - m_height && x <= m_left + m_width
-            && y >= m_top && y <= m_top + m_height)
+        if (x >= m_left + m_width - 10 && x <= m_left + m_width
+            && y >= m_top + (m_height - 10)/2 && y <= m_top + m_height / 2 + 5)
         {
             return this;
         }
     }
     else
     {
-        if (x >= m_left && x <= m_left + m_height
-            && y >= m_top && y <= m_top + m_height)
+        if (x >= m_left && x <= m_left + 10
+            && y >= m_top + (m_height - 10) / 2 && y <= m_top + m_height / 2 + 5)
         {
             return this;
         }
