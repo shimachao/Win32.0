@@ -87,6 +87,13 @@ void Button::draw(Gdiplus::Graphics &g)
     blackPen.SetAlignment(Gdiplus::PenAlignmentInset);
     g.DrawRectangle(&blackPen, (int)m_left, m_top, m_width, m_height);
 
+    // 如果鼠标在按钮上就绘制一层效果
+    if (m_ifMouseIn)
+    {
+        SolidBrush solidBrush(Color(20, 0, 0, 0));
+        g.FillRectangle(&solidBrush, m_left, m_top, m_width, m_height);
+    }
+
     // 绘制文字
     FontFamily fontFamily(L"Consolas");
     Gdiplus::Font font(&fontFamily, 16, FontStyleRegular, UnitPixel);
