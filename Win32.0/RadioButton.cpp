@@ -173,9 +173,21 @@ void RadioButton::draw(Gdiplus::Graphics &g)
         selectRect.X = m_left;
     }
     // 绘制表示选中状态的部分
+    // 如果鼠标移到到单选按钮上就绘制一层效果
+    if (m_ifMouseIn)
+    {
+        SolidBrush brush(Color(40, 0, 0, 0));
+        Rect r = selectRect;
+        r.X -= 4;
+        r.Y -= 4;
+        r.Width += 8;
+        r.Height += 8;
+        g.FillEllipse(&brush, r);
+    }
+    // 绘制圆孔
     Pen blackPen(Color::Black);
     g.DrawEllipse(&blackPen, selectRect);
-
+    // 如果选中就填充选中状态部分
     if (m_ifChecked)
     {
         selectRect.X += 1;
@@ -185,6 +197,7 @@ void RadioButton::draw(Gdiplus::Graphics &g)
         SolidBrush solidBrush(Color::Black);
         g.FillEllipse(&solidBrush, selectRect);
     }
+
     // 绘制文字
     FontFamily fontFamily(L"Consolas");
     Gdiplus::Font font(&fontFamily, 16, FontStyleRegular, UnitPixel);
