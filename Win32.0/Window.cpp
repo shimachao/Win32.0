@@ -247,11 +247,13 @@ void Window::onMouseMove(int x, int y)
     if (m_pControlCaptureMouse != nullptr)
     {
         m_pControlCaptureMouse->mouseMoveOut();
+        InvalidateRect(m_hwnd, NULL, false);
     }
 
     if (var != nullptr)
     {
         var->mouseMoveIn();
+        InvalidateRect(m_hwnd, NULL, false);
     }
 
     m_pControlCaptureMouse = var;
@@ -301,5 +303,4 @@ void Window::onLButtonUp(int x, int y)
         var->LMBUp();
         InvalidateRect(m_hwnd, NULL, false);
     }
-    SendMessage(m_hwnd, WM_PAINT, NULL, NULL);
 }
