@@ -6,6 +6,7 @@
 #include "StaticText.h"
 #include "Button.h"
 #include "RadioButton.h"
+#include "Progress.h"
 #include "Graph.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
@@ -15,7 +16,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     FlowLinearLayout flowLayout(600, 100);
     LinearLayout linearLayout(600, 100);
-    GridLayout girdLayout(600, 200, 2, 3);
+    GridLayout girdLayout(600, 200, 2, 4);
 
     Button button1(100, 50, L"button1");
     Button button2(100, 50, L"button2");
@@ -40,6 +41,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     RadioButton radioButton2(100, 50, L"Radio Button 2");
     radioButton2.setTextPos(RadioButton::left);
     RadioButton radioButton3(100, 50, L"Radio Button 3");
+    Progress progress(100, 20);
+    progress.setPace(50);
 
     girdLayout.add(&button5);
     girdLayout.add(&button6);
@@ -47,6 +50,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     girdLayout.add(&radioButton1);
     girdLayout.add(&radioButton2);
     girdLayout.add(&radioButton3);
+    girdLayout.add(&progress);
 
     AbsoluteLayout absoluteLayout(600, 400);
     absoluteLayout.add(&flowLayout, 0, 0);

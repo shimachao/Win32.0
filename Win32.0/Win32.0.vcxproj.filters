@@ -57,6 +57,9 @@
     <ClInclude Include="Base.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Progress.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IElement.cpp">
@@ -99,6 +102,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Progress.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
