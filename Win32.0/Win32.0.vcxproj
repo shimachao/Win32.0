@@ -156,6 +156,7 @@
     <ClInclude Include="IElement.h" />
     <ClInclude Include="ILayout.h" />
     <ClInclude Include="LinearLayout.h" />
+    <ClInclude Include="LineProgress.h" />
     <ClInclude Include="Progress.h" />
     <ClInclude Include="RadioButton.h" />
     <ClInclude Include="StaticText.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="IElement.cpp" />
     <ClCompile Include="ILayout.cpp" />
     <ClCompile Include="LinearLayout.cpp" />
+    <ClCompile Include="LineProgress.cpp" />
     <ClCompile Include="Progress.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="StaticText.cpp" />
