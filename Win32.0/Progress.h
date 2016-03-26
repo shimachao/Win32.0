@@ -26,7 +26,7 @@ public:
     // 绘制
     virtual void draw(Gdiplus::Graphics &g) override;
 
-private:
+protected:
     unsigned m_range;   // 范围
     unsigned m_pace;    // 进度位置
     unsigned m_step;    // 步长
